@@ -21,10 +21,10 @@
     </div>
     {% if grand_total and not on_profile_page %}
     <p class="logo-font bg-white text-black py-1">
-      Your Bag ({{ product_count }})
+      Your Cart ({{ product_count }})
     </p>
-    <div class="bag-notification-wrapper">
-      {% for item in bag_items %}
+    <div class="cart-notification-wrapper">
+      {% for item in cart_items %}
       <div class="row">
         <div class="col-3 my-1">
           {% if item.product.image %}
@@ -63,7 +63,7 @@
         </p>
         {% endif %}
         <a
-          href="{% url 'view_bag' %}"
+          href="{% url 'view_cart' %}"
           class="btn btn-black btn-block rounded-0"
         >
           <span class="text-uppercase">Go To Secure Checkout</span>
