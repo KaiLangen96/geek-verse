@@ -39,51 +39,99 @@
         </div>
         <div class="carousel-item">
             <a href="{% url 'products' %}?category=harry_potter">
-                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}website-banner--marvel.webp" 
-                alt="Harry Potter banner" />
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}website-banner--marvel.webp"
+                    alt="Harry Potter banner" />
             </a>
         </div>
         <div class="carousel-item">
             <a href="{% url 'products' %}?category=marvel,dc_comics,star_wars,harry_potter">
-                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}website-banner--marvel.webp" 
-                alt="All brands banner"/>
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}website-banner--marvel.webp"
+                    alt="All brands banner" />
             </a>
         </div>
     </div>
-    <button class="carousel-control-prev bg-black" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+    <button class="carousel-control-prev bg-black" type="button" data-target="#carouselExampleIndicators"
+        data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </button>
-    <button class="carousel-control-next bg-black" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+    <button class="carousel-control-next bg-black" type="button" data-target="#carouselExampleIndicators"
+        data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </button>
 </div>
+
 <div class="container-fluid mt-4">
     <h3 class="logo-font text-black text-center">
         <strong>New Arrivals</strong>
     </h3>
-</div>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <p>Item 1</p>
+    <div class="row px-4">
+        {% for product in products %}
+        <div class="col-sm-6 col-md-6 col-lg-2">
+            <div class="card h-100 border-0">
+                {% if product.image %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body pb-0">
+                    <p class="mb-0">{{ product.name }}</p>
+                </div>
+                <div class="card-footer bg-white pt-0 border-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                            {% if product.category %}
+                            <p class="small mt-1 mb-0">
+                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                </a>
+                            </p>
+                            {% endif %}
+                            {% if product.rating %}
+                            <small class="text-muted">
+                                <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5
+                            </small>
+                            {% else %}
+                            <small class="text-muted">No Rating</small>
+                            {% endif %}
+                            {% if request.user.is_superuser %}
+                            <small class="ml-3">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-12 d-sm-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 %}
+        <div class="col-12 d-none d-xl-block mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    <div class="carousel-item">
-        <p text-center>Item 1</p>
-    </div>
-  <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </button>
 </div>
 {% endblock %}
