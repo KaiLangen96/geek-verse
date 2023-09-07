@@ -10,19 +10,60 @@
 {% endblock %}
 
 {% block content %}
-<div class="container h-100">
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-font text-black">Marvel Hero here</h1>
-            <div class="my-5">
-                <h4>
-                    <a href="{% url 'products' %}" 
-                    class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
-                    Shop Now
-                    </a>
-                </h4>
-            </div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="{% url 'products' %}?category=marvel">
+                <img class="card-img-top img-fluid" src="{{ 'media/website-banner--marvel.webp' }}"
+                    alt="Marvel banner" />
+            </a>
         </div>
+        <div class="carousel-item">
+            <a href="{% url 'products' %}?category=dc_comics">
+                <img class="card-img-top img-fluid" src="{{ 'media/website-banner--marvel.webp' }}"
+                    alt="DC Comics banner" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{% url 'products' %}?category=star_wars">
+                <img class="card-img-top img-fluid" src="{{ 'media/website-banner--marvel.webp' }}"
+                    alt="Star Wars banner" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{% url 'products' %}?category=harry_potter">
+                <img class="card-img-top img-fluid" src="{{ 'media/website-banner--marvel.webp' }}" 
+                alt="Harry Potter banner" />
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{% url 'products' %}?category=marvel,dc_comics,star_wars,harry_potter">
+                <img class="card-img-top img-fluid" src="{{ 'media/website-banner--marvel.webp' }}" 
+                alt="All brands banner"/>
+            </a>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </button>
+</div>
+<div class="container-fluid">
+    <div class="col-7 col-md-6 mt-4">
+        <h3 class="logo-font text-black">
+            New Arrivals
+        </h3>
     </div>
 </div>
 {% endblock %}
