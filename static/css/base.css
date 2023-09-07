@@ -3,11 +3,35 @@ html {
 }
 
 body {
-    background: url("/media/website-banner--marvel.webp") no-repeat center center fixed;
-    background-size: contain;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
+}
+
+/* Footer */
+
+.footer-container {
+    height: 250px;
+}
+
+.social-networks {
+    text-align: center;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.social-networks li {
+    display: inline;
+}
+
+.social-networks i {
+    font-size: 160%;
+    padding: 0 30px;
+    color: #4b5054;
+}
+
+.social-networks i:hover {
+    color: #142a2b;
 }
 
 /* from Bulma */
