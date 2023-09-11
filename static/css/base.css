@@ -8,13 +8,29 @@ body {
     font-family: 'Lato';
 }
 
-/* nav-bar fix */
+/* Nav-bar */
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.search-icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
 
 .nav-link {
     padding: 1rem;
 }
 
-/* Carousel */
+/* Call-to-action section */
 
 .carousel-control-next,
 .carousel-control-prev {
@@ -53,32 +69,11 @@ body {
     color: #142a2b;
 }
 
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
+/* Buttons */
 
 .btn-outline-black {
     background: white;
     color: black !important;
-    /* use important to override link colors for <a> elements */
     border: 1px solid black;
 }
 
@@ -89,15 +84,41 @@ body {
     color: white !important;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
+.new-arrivals-button:hover,
+.new-arrivals-button:active,
+.new-arrivals-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
     background: #222;
     color: white;
 }
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+a.category-badge>span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+/* Black & White theme */
 
 .text-black {
     color: #000 !important;
@@ -119,25 +140,6 @@ body {
     position: fixed;
     background: white;
     z-index: -1;
-}
-
-a.category-badge>span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
-}
-
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
 }
 
 input[name='q']::placeholder {
@@ -162,6 +164,7 @@ input[name='q']::placeholder {
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+
 .arrow-up {
     width: 0;
     height: 0;
@@ -174,6 +177,7 @@ input[name='q']::placeholder {
 }
 
 /* Convenience classes - colors copied from Bootstrap */
+
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -212,22 +216,11 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
-/* Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
-}
-
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
-    margin-top: 1.5rem;
-    /* mt-4 */
-    color: #6c757d;
-    /* text-secondary */
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; /* text-secondary */
 }
 
 .allauth-form-inner-content input {
@@ -306,6 +299,8 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+/* Media Queries */
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -329,5 +324,12 @@ input[name='q']::placeholder {
 
     body {
         height: calc(100vh - 116px);
+    }
+}
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
     }
 }
