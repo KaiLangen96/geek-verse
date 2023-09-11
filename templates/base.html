@@ -49,19 +49,19 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-black d-none d-lg-flex">
+        <div id="topnav" class="row bg-white d-none d-lg-flex">
             <div class="col-12 col-lg-4 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link mx-auto">
-                    <img class="card-img-top img-fluid logo-img" src="{{ MEDIA_URL }}Loggo.png" alt="GeekVerse Logo" />
+                    <img class="card-img-top img-fluid btn logo-img border-black p-2" src="{{ MEDIA_URL }}Loggo.png" alt="GeekVerse Logo" />
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="{% url 'products' %}">
                     <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q"
+                        <input class="form-control border border-black" type="text" name="q"
                             placeholder="Search our site">
                         <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            <button class="form-control btn btn-black border border-black" type="submit">
                                 <span class="search-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -73,7 +73,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown"
+                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
@@ -83,7 +83,7 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                            <a href="{% url 'add_product' %}" class="dropdown-item">Adding a Product</a>
                             {% endif %}
                             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -97,8 +97,8 @@
                         <a class="font-weight-bold nav-link"
                             href="{% url 'view_cart' %}">
                             <div class="text-center">
-                                <div><i class="fa-solid fa-cart-shopping text-white"></i></div>
-                                <p class="my-0 text-white">
+                                <div><i class="fa-solid fa-cart-shopping text-black"></i></div>
+                                <p class="my-0 text-black">
                                     {% if grand_total %}
                                     ${{ grand_total|floatformat:2 }}
                                     {% else %}
@@ -113,9 +113,9 @@
         </div>
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav"
+                <button class="navbar-toggler btn border-black" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span><img class="card-img-top img-fluid logo-img mobile-logo" src="{{ MEDIA_URL }}Loggo.png" alt="GeekVerse Logo" /></span>
                 </button>
                 {% include 'includes/mobile-top-header.html' %}
                 {% include 'includes/main-nav.html' %}
