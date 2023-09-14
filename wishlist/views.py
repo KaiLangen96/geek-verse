@@ -41,3 +41,10 @@ def toggle_wishlist_item(request, item_id):
             WishlistItem.objects.create(user=request.user, product=products)
             messages.success(request, f'Added {product.name} to your wishlist')
             return HttpResponseRedirect(reverse('view_wishlist'))
+
+
+def remove_from_wishlist(request, item_id):
+    if request.method == "POST":
+        item_id = request.POST.get('item-id')
+        WishlistItem.objects.filter(id=item_id).delete()
+        return HttpResponseRedirect(reverse('view_wishlist'))

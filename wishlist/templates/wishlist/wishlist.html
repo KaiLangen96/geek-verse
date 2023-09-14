@@ -57,6 +57,13 @@
                         <td class="py-3">
                             <p class="my-0">${{ item.product.price }}</p>
                         </td>
+                        <td class="py-3 w-25">
+                            <form action="{% url 'remove_from_wishlist' item.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="item-id" value="{{ item.id }}">
+                                <input type="submit" value="Remove" class="btn text-danger">
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
                     <tr>
@@ -83,4 +90,23 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/wishlist/remove/${itemId}/`;
+        var data = { 'csrfmiddlewaretoken': csrfToken, 'product_size': size };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
 {% endblock %}
