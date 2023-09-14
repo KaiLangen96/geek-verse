@@ -3,9 +3,9 @@ from products.models import Product
 
 
 def index(request):
-    """ A view to return the index page """
+    """A view to return the index page"""
     products = Product.objects.filter(category__name="new_arrivals")[:6]
     context = {
-        'products': products,
+        "products": products,
     }
-    return render(request, 'home/index.html', context)
+    return render(request, "home/index.html", context)
