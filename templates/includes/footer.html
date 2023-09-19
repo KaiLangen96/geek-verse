@@ -1,0 +1,65 @@
+<footer class="container-fluid footer-container">
+    <hr>
+    <div class="row p-lg-3">
+        <div class="col-12 col-md-4 p-4">
+            <div>
+                <h2 class="mb-4 text-center">Be part of the community!</h2>
+                <ul class="social-networks">
+                    <div class="row text-center">
+                        <li class="list-inline-item mx-auto my-3">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                                aria-label="Visit our Facebook page (opens in new tab)"><i class="fab fa-facebook"
+                                    aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item m-auto">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                                aria-label="Visit our Instagram page (opens in new tab)"><i class="fab fa-instagram"
+                                    aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item m-auto">
+                            <a href="https://twitter.com/" target="_blank" rel="noopener"
+                                aria-label="Visit our Twitter page (opens in new tab)"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item m-auto">
+                            <a href="https://www.youtube.com/" target="blank" rel="noopener"
+                                aria-label="Visit our Youtube page (opens in new tab)"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div>
+                <!--Mailchimp Form-->
+            </div>
+        </div>
+        <div class="col-12 col-md-4 p-4">
+            <ul class="nav flex-column text-center">
+                <li class="nav-item">
+                    <a href="{% url 'products' %}" class="text-uppercase">All Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'view_help_center' %}" class="text-uppercase">Help Center</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'products' %}?category=new_arrivals,deals,limited_offers" class="text-uppercase">Special Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="text-uppercase" target="_blank">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="text-uppercase" target="_blank">Terms of Service</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 col-md-4 p-4 text-center">
+            <h5 class="mb-4">Payment Methods</h5>
+            <img src="{{ MEDIA_URL }}AmericanExpress.png" alt="American Express">
+            <img src="{{ MEDIA_URL }}DinersClub.png" alt="Diners Club">
+            <img src="{{ MEDIA_URL }}Discover.png" alt="Discover">
+            <img src="{{ MEDIA_URL }}MasterCard.png" alt="MasterCard">
+            <img src="{{ MEDIA_URL }}VISA.png" alt="VISA">
+        </div>
+    </div>
+    <div>
+        
+    </div>
+</footer>
