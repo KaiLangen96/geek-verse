@@ -92,6 +92,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="submit" class="btn btn-black text-uppercase mt-5" value="Add to Cart">
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
                     </div>
@@ -103,11 +104,6 @@
                         </span>
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
-                    <form action="{% url 'add_to_cart' product.id %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="product-id" value="{{ product.id }}">
-                        <input type="submit" class="btn btn-black text-uppercase mt-5" value="Add to Cart">
-                    </form>
                     <form action="{% url 'toggle_wishlist_item' product.id %}" method="POST">
                         {% csrf_token %}
                         <input type="hidden" name="product-id" value="{{ product.id }}">
