@@ -23,7 +23,9 @@
                     {% if item.product.image %}
                     <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                     {% else %}
-                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                    <img class="w-100"
+                        src="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
+                        alt="{{ product.name }}">
                     {% endif %}
                 </div>
                 <div class="col-9">
@@ -50,7 +52,7 @@
                 <a href="{% url 'view_cart' %}" class="btn btn-black btn-block">
                     <span class="text-uppercase">Go To Your Cart</span>
                     <span class="icon">
-                        <i class="fas fa-lock"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
                     </span>
                 </a>
             </div>
