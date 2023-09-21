@@ -9,8 +9,6 @@ from django.contrib import messages
 
 from products.models import Product
 
-# Create your views here.
-
 
 def view_cart(request):
     """A view that renders the cart contents page"""
@@ -28,15 +26,19 @@ def add_to_cart(request, item_id):
     if "product_size" in request.POST:
         size = request.POST["product_size"]
     cart = request.session.get("cart", {})
-
     if size:
         if item_id in list(cart.keys()):
             if size in cart[item_id]["items_by_size"].keys():
-                cart[item_id]["items_by_size"][size] += quantity
-                messages.success(
-                    request,
-                    f'Updated size {size.upper()} {product.name} quantity to {cart[item_id]["items_by_size"][size]}',
-                )
+                if cart[item_id]["items_by_size"][size] + quantity < 49:
+                    cart[item_id]["items_by_size"][size] += quantity
+                    messages.success(
+                        request, f'Updated {product.name} quantity to {cart[item_id]["items_by_size"][size]}'
+                    )
+                else:
+                    cart[item_id]["items_by_size"][size] = 49
+                    messages.success(
+                        request, "Maximum amount in one order is 49"
+                    )
             else:
                 cart[item_id]["items_by_size"][size] = quantity
                 messages.success(
@@ -51,10 +53,16 @@ def add_to_cart(request, item_id):
             )
     else:
         if item_id in list(cart.keys()):
-            cart[item_id] += quantity
-            messages.success(
-                request, f"Updated {product.name} quantity to {cart[item_id]}"
-            )
+            if cart[item_id] + quantity < 49:
+                cart[item_id] += quantity
+                messages.success(
+                    request, f"Updated {product.name} quantity to {cart[item_id]}"
+                )
+            else:
+                cart[item_id] = 49
+                messages.success(
+                    request, "Maximum amount in one order is 49"
+                )
         else:
             cart[item_id] = quantity
             messages.success(request, f"Added {product.name} to your cart")
