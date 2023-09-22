@@ -11,6 +11,10 @@ body {
     z-index: 1000;
 }
 
+.empty-page-container{
+    min-height: calc(100vh - 300px);
+}
+
 /* Nav-bar */
 
 #topnav {
@@ -292,12 +296,6 @@ input[name='q']::placeholder {
     /* text-info */
 }
 
-/* Cart */
-
-.empty-cart {
-    min-height: calc(100vh - 700px);
-}
-
 /* Product Form */
 
 .btn-file {
@@ -325,7 +323,6 @@ input[name='q']::placeholder {
     border-color: #dc3545;
     border-radius: 0;
 }
-
 
 /* Media Queries */
 
