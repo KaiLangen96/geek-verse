@@ -27,7 +27,7 @@ def profile(request):
     orders = profile.orders.all()
 
     template = "profiles/profile.html"
-    context = {"form": form, "orders": orders, "on_profile_page": True}
+    context = {"form": form, "orders": orders, "no_cart_display": True}
 
     return render(request, template, context)
 

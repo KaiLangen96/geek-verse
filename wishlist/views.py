@@ -14,7 +14,7 @@ def view_wishlist(request):
     template = "wishlist/wishlist.html"
     context = {
         "wishlist": wishlist,
-        "on_profile_page": True,
+        "no_cart_display": True,
     }
 
     return render(request, template, context)
