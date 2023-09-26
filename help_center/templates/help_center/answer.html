@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>GeekVerse {% block extra_title %}| Answer Question #{{ question.id}} {% endblock %}</title>
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="overlay"></div>
+<div class="container mb-2 empty-page-container">
+    <div class="row">
+        <div class="col">
+            <h2 class="logo-font my-4 text-center">Answer Question #{{ question.id }}</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-4 col-lg-6 mt-3">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>User :</th>
+                        <td>{{ question.user }}</td>
+                    </tr>
+                    <tr>
+                        <th>Question regarding:</th>
+                        <td>{{ question.get_questions_regarding_display }}</td>
+                    </tr>
+                    <tr>
+                        <th>Question:</th>
+                        <td>{{ question.your_question }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date:</th>
+                        <td>{{ question.date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-md-4 col-lg-6 mt-3">
+            <form method="post" action="">
+                {{ answer_form | crispy }}
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col mb-3">
+                        <button type="submit" class="btn btn-black btn-lg float-right ml-1">Submit</button>
+                        <input type="hidden" name="redirect_url_2" value="{{ request.path }}">
+                        <a class="btn btn btn-outline-dark m-2" href="{% url 'view_dashboard' %}">Back to Dashboard</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

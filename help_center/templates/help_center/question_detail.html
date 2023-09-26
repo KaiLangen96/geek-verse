@@ -43,6 +43,32 @@
                 </tbody>
             </table>
             <a class="btn btn btn-outline-dark m-2" href="{%  url 'view_dashboard' %}">Back</a>
+            <a class="btn btn btn-outline-dark m-2" href="{%  url 'view_answer' question.id %}">Answer</a>
+            {% if answer %}
+            <div class="col">
+                <h2 class="logo-font my-4 text-center">Answer/s</h2>
+            </div>
+            {% for ans in answer %}
+            <div class="col-11">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th class="w-50">Responder:</th>
+                            <td class="w-50">{{ ans.responder }}</td>
+                        </tr>
+                        <tr>
+                            <th>Answer:</th>
+                            <td>{{ ans.answer }}</td>
+                        </tr>
+                        <tr>
+                            <th>Date:</th>
+                            <td>{{ ans.date }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>

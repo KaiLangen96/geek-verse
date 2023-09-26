@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test, login_required
 
-from .forms import QuestionForm
+from .forms import QuestionForm, AnswerForm
 from .models import Question, Answer
 
 
@@ -75,5 +75,20 @@ def question_detail(request, question_id):
     context = {
         "question": question,
         "answer": answer,
+    }
+    return render(request, template, context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def view_answer(request, question_id):
+    """ Gives the admins the possibility to reply to questions """
+    question = get_object_or_404(Question, pk=question_id)
+    template = "help_center/answer.html"
+    answer_form = AnswerForm(initial={"responder": request.user})
+    answer_form.fields['responder'].disabled = True
+
+    context = {
+        "question": question,
+        "answer_form": answer_form,
     }
     return render(request, template, context)
