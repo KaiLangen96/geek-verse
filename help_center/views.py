@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test, login_required
 
 from .forms import QuestionForm
+from .models import Question
 
 
 @login_required
@@ -44,5 +45,17 @@ def submit_question(request):
     template = "help_center/help_center.html"
     context = {
         "question_form": question_form,
+    }
+    return render(request, template, context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def view_dashboard(request):
+    """ Displays all questions """
+    questions = Question.objects.all()
+    template = "help_center/help_center_dashboard.html"
+
+    context = {
+        "questions": questions
     }
     return render(request, template, context)
