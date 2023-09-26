@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test, login_required
 
 from .forms import QuestionForm
-from .models import Question
+from .models import Question, Answer
 
 
 @login_required
@@ -57,5 +57,23 @@ def view_dashboard(request):
 
     context = {
         "questions": questions
+    }
+    return render(request, template, context)
+
+
+@login_required
+def question_detail(request, question_id):
+    """ Displays a specific questions details """
+    question = get_object_or_404(Question, pk=question_id)
+    answers = Answer.objects.filter(question=question_id)
+    if answers.exists():
+        answer = answers
+    else:
+        answer = None
+    template = "help_center/question_detail.html"
+
+    context = {
+        "question": question,
+        "answer": answer,
     }
     return render(request, template, context)

@@ -46,7 +46,7 @@
                     </td>
                     <td>{{ question.date }}</td>
                     <td>
-                        <a href="">View</a>
+                        <a href="{% url 'question_detail' question.id %}">View</a>
                     </td>
                 </tr>
                 {% endfor %}
