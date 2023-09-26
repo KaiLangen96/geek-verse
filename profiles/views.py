@@ -5,6 +5,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from help_center.models import Question, Answer
 
 
 @login_required
@@ -31,6 +32,7 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -48,4 +50,35 @@ def order_history(request, order_number):
         "from_profile": True,
     }
 
+    return render(request, template, context)
+
+
+@login_required
+def my_questions(request):
+    """ Gives the user the possibility to see their questions and answers """
+    questions = Question.objects.filter(user=request.user)
+    template = "profiles/my_questions.html"
+
+    context = {
+        "questions": questions,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def my_question_detail(request, question_id):
+    """ Displays a specific questions details """
+    question = get_object_or_404(Question, pk=question_id)
+    answers = Answer.objects.filter(question=question_id)
+    if answers.exists():
+        answer = answers
+    else:
+        answer = None
+    template = "profiles/my_question_detail.html"
+
+    context = {
+        "question": question,
+        "answer": answer,
+    }
     return render(request, template, context)

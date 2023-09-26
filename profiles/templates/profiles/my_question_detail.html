@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>GeekVerse {% block extra_title %}| Ticket #{{ question.id}} {% endblock %}</title>
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="overlay"></div>
+<div class="container mb-2 empty-page-container">
+    <div class="row">
+        <div class="col">
+            <h2 class="logo-font my-4 text-center">Question #{{ question.id }}</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <a class="btn btn btn-outline-danger m-2 float-right" href="{%  url 'delete_question' question.id %}">Delete</a>
+            <a class="btn btn btn-outline-black m-2 float-right" href="{%  url 'my_questions' %}">Back</a>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="w-50">User:</th>
+                        <td class="w-50">{{ question.user }}</td>
+                    </tr>
+                    <tr>
+                        <th>Question regarding:</th>
+                        <td>{{ question.get_questions_regarding_display }}</td>
+                    </tr>
+                    <tr>
+                        <th>Question:</th>
+                        <td>{{ question.your_question }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date:</th>
+                        <td>{{ question.date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% if answer %}
+        <div class="col">
+            <h2 class="logo-font my-4 text-center">Answer/s</h2>
+        </div>
+        {% for ans in answer %}
+        <div class="col-11">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th class="w-50">Responder:</th>
+                        <td class="w-50">{{ ans.responder }}</td>
+                    </tr>
+                    <tr>
+                        <th>Answer:</th>
+                        <td>{{ ans.answer }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date:</th>
+                        <td>{{ ans.date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    
+</div>
+{% endblock %}

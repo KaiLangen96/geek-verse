@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>GeekVerse {% block extra_title %}| My Questions {% endblock %}</title>
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mb-2 empty-page-container">
+    <div class="row">
+        <div class="col">
+            <h2 class="logo-font my-4 text-center">Questions:</h2>
+        </div>
+    </div>
+    <div class="container justify-content-center">
+        <table class="table questions-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Question regarding </th>
+                    <th scope="col" class="d-none d-md-table-cell">Question</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in questions %}
+                <tr>
+                    <th scope="row">{{ question.id }}</th>
+                    <td>
+                        <p>{{ question.user }}</p>
+                    </td>
+                    <td>
+                        <p>{{ question.get_questions_regarding_display }}</p>
+                    </td>
+                    <td class="d-none d-md-table-cell">
+                        <p>{{ question.your_question|truncatechars:15 }}</p>
+                    </td>
+                    <td>{{ question.date }}</td>
+                    <td>
+                        <a href="{% url 'my_question_detail' question.id %}">View</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_question' question.id %}" class="text-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
