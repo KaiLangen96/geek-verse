@@ -29,6 +29,7 @@
                     <th scope="col" class="d-none d-md-table-cell">Question</th>
                     <th scope="col">Date</th>
                     <th scope="col">View</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,6 +48,9 @@
                     <td>{{ question.date }}</td>
                     <td>
                         <a href="{% url 'question_detail' question.id %}">View</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_question' question.id %}" class="text-danger">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

@@ -122,3 +122,23 @@ def send_answer(request, question_id):
         }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_question(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+
+    if request.method == "POST":
+        question.delete()
+        messages.success(request, "Successfully deleted the question!")
+        if request.user.is_superuser:
+            return redirect(reverse("view_dashboard"))
+        else:
+            return redirect(reverse("my_questions"))
+
+    template = "help_center/delete_question.html"
+    context = {
+        "question": question,
+    }
+
+    return render(request, template, context)

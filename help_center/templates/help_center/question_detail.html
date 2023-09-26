@@ -44,6 +44,7 @@
             </table>
             <a class="btn btn btn-outline-dark m-2" href="{%  url 'view_dashboard' %}">Back</a>
             <a class="btn btn btn-outline-dark m-2" href="{%  url 'view_answer' question.id %}">Answer</a>
+            <a class="btn btn btn-outline-danger m-2" href="{%  url 'delete_question' question.id %}">Delete</a>
             {% if answer %}
             <div class="col">
                 <h2 class="logo-font my-4 text-center">Answer/s</h2>
