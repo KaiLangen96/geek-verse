@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+<title>GeekVerse {% block extra_title %}| Ask a Question {% endblock %}</title>
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -15,18 +17,16 @@
 <div class="container mb-2">
     <div class="row">
         <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4 text-center">Help Center</h2>
-            <hr>
+            <h2 class="logo-font my-4 text-center">Ask a Question</h2>
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-11 col-md-8 col-lg-6 mt-3">
-            <form method="post">
+        <div class="col-12 col-md-8 col-lg-6 mt-3">
+            <form method="post" action="{% url 'submit_question' %}">
                 {{ question_form | crispy }}
                 {% csrf_token %}
                 <div class="row">
-                    <div class="col">
+                    <div class="col mb-3">
                         <button type="submit" class="btn btn-black btn-lg float-right ml-1">Submit</button>
                         <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg float-right">
                             <span class="icon">

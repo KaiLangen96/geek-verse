@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>GeekVerse {% block extra_title %}| Question #{{ question.id}} {% endblock %}</title>
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="overlay"></div>
+<div class="container mb-2 empty-page-container">
+    <div class="row">
+        <div class="col">
+            <h2 class="my-4 text-center">Your Question has been submitted!</h2>
+            <p class="text-center my-4">Our support team will answer as soon as possible.</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-6 mt-3">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>User:</th>
+                        <td>{{ question.user }}</td>
+                    </tr>
+                    <tr>
+                        <th>Question regarding:</th>
+                        <td>{{ question.get_questions_regarding_display }}</td>
+                    </tr>
+                    <tr>
+                        <th>Question:</th>
+                        <td>{{ question.your_question }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date:</th>
+                        <td>{{ question.date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn btn-outline-dark m-2" href="{%  url 'products' %}">Go Shopping</a>
+            <a class="btn btn btn-outline-dark m-2" href="{%  url 'profile' %}">My Questions</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
