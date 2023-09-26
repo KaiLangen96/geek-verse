@@ -44,7 +44,7 @@
             </table>
         </div>
         <div class="col-12 col-md-4 col-lg-6 mt-3">
-            <form method="post" action="">
+            <form method="post" action="{% url 'send_answer' question.id %}">
                 {{ answer_form | crispy }}
                 {% csrf_token %}
                 <div class="row">

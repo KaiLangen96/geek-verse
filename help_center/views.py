@@ -92,3 +92,33 @@ def view_answer(request, question_id):
         "answer_form": answer_form,
     }
     return render(request, template, context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def send_answer(request, question_id):
+    """ Posts the questions to the admin via the contact form """
+    answer_form = AnswerForm(data=request.POST, initial={"responder": request.user})
+    answer_form.fields['responder'].disabled = True
+    redirect_url = request.POST.get("redirect_url_2")
+    question = get_object_or_404(Question, pk=question_id)
+
+    if answer_form.is_valid():
+        answer_form.instance.question = question
+        answer_form.save()
+        messages.success(
+            request,
+            "Your answer has been submitted.",
+        )
+
+        return redirect(reverse(view_dashboard))
+
+    else:
+        messages.error(
+            request, "The answer form is invalid. Please ensure the form is valid."
+        )
+        template = redirect_url
+        context = {
+            "answer_form": answer_form,
+        }
+
+    return render(request, template, context)
