@@ -72,7 +72,8 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item">Adding a Product</a>
+                            <a href="{% url 'add_product' %}" class="dropdown-item">Add Product</a>
+                            <a href="{% url 'view_dashboard' %}" class="dropdown-item">Help Center</a>
                             {% endif %}
                             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                             <a href="{% url 'view_wishlist' %}" class="dropdown-item">My Wishlist</a>
