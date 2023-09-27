@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-<title>GeekVerse {% block extra_title %}| Question #{{ question.id}} {% endblock %}</title>
+{% block extra_title %}| Question #{{ question.id}} {% endblock %}
 
 {% block page_header %}
 <div class="container header-container">

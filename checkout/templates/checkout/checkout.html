@@ -2,7 +2,7 @@
 {% load static %}
 {% load cart_tools %}
 
-<title>GeekVerse {% block extra_title %}| Checkout {% endblock %}</title>
+{% block extra_title %}| Checkout {% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
