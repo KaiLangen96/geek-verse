@@ -25,7 +25,7 @@
                     {% else %}
                     <img class="w-100"
                         src="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
-                        alt="{{ product.name }}">
+                        alt="{{ item.product.name }}">
                     {% endif %}
                 </div>
                 <div class="col-9">

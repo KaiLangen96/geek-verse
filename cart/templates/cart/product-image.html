@@ -7,6 +7,6 @@
     target="_blank">
     <img class="img-fluid rounded"
         src="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
-        alt="{{ product.name }}">
+        alt="{{ item.product.name }}">
 </a>
 {% endif %}
