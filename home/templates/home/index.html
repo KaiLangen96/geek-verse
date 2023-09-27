@@ -73,14 +73,14 @@
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-md-4 col-lg-2">
-                    <div class="card h-100 border-0">
+                    <div class="card h-100 border">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="{% if product.image_url %}{{ product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" target="_blank">
-                            <img class="img-fluid rounded"
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid"
                                 src="{% if product.image_url %}{{ product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
                                 alt="{{ product.name }}">
                         </a>
