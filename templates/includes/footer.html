@@ -5,19 +5,19 @@
                 <h3 class="mb-4 text-white">Stay in Touch!</h3>
                 <ul class="list-inline social-networks">
                     <li class="list-inline-item">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                        <a href="https://www.facebook.com/" target="_blank" rel="nofollow"
                             aria-label="Visit our Facebook page (opens in new tab)"><i class="fab fa-facebook text-white"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                        <a href="https://www.instagram.com/" target="_blank" rel="nofollow"
                             aria-label="Visit our Instagram page (opens in new tab)"><i class="fab fa-instagram text-white"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://twitter.com/" target="_blank" rel="noopener"
+                        <a href="https://twitter.com/" target="_blank" rel="nofollow"
                             aria-label="Visit our Twitter page (opens in new tab)"><i class="fab fa-twitter text-white"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://www.youtube.com/" target="blank" rel="noopener"
+                        <a href="https://www.youtube.com/" target="blank" rel="nofollow"
                             aria-label="Visit our Youtube page (opens in new tab)"><i class="fab fa-youtube text-white"></i></a>
                     </li>
                 </ul>
@@ -49,7 +49,7 @@
             </div>           
         </div>
         <div class="col-12 col-md-4 px-4 px-md-0 py-4 border-mid my-auto">
-            <ul class="nav flex-column text-center px-4">
+            <ul class="nav flex-column px-4">
                 <li class="nav-item">
                     <a href="{% url 'products' %}" class="nav-link text-uppercase text-white">All Products</a>
                 </li>
@@ -60,10 +60,10 @@
                     <a href="{% url 'products' %}?category=new_arrivals,deals,limited_offers&special=true" class="nav-link text-uppercase text-white">Special Offers</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-uppercase text-white" target="_blank">Privacy Policy</a>
+                    <button id="privacy-policy-btn" class="btn nav-link text-uppercase text-white">Privacy Policy</button>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link text-uppercase text-white" target="_blank">Terms of Service</a>
+                    <button id="tos-btn" class="btn nav-link text-uppercase text-white">Terms of Service</button>
                 </li>
             </ul>
         </div>
@@ -76,4 +76,21 @@
             <img class="payment-image mb-2" src="{{ MEDIA_URL }}VISA.png" alt="VISA">
         </div>
     </div>
+    <!-- Modals -->
+    <div id="privacy-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-privacy-policy">&times;</span>
+            {% include 'includes/privacy_policy.html' %}
+        </div>
+    </div>
+    <div id="tos-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-tos">&times;</span>
+            {% include 'includes/tos.html' %}
+        </div>
+    </div>
 </footer>
+
+{% block postloadjs %}
+{% include 'includes/modal_script.html' %}
+{% endblock %}

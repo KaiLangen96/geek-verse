@@ -91,6 +91,52 @@ body {
     opacity: 80%;
 }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+  
+/* The Close Button */
+.close-tos,
+.close-privacy-policy {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-tos:hover,
+.close-tos:focus,
+.close-privacy-policy:hover,
+.close-privacy-policy:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#links-container {
+    display: flex;
+    justify-content: center;
+}
+
 /* Buttons */
 
 .btn-outline-black {
@@ -357,6 +403,11 @@ input[name='q']::placeholder {
     /* fix carousel for mobile */
     .mobile-carousel {
         height: 25vh !important;
+    }
+    /* add borders to the links */
+    .border-mid {
+        border-top: 1px solid #dee2e6 !important;
+        border-bottom: 1px solid #dee2e6 !important;
     }
 }
 
