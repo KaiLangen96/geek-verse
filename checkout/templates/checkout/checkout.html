@@ -43,8 +43,8 @@
                         <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                         {% else %}
                         <img class="w-100"
-                        src="{% if product.image_url %}{{ product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
-                        alt="{{ product.name }}">
+                        src="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
+                        alt="{{ item.product.name }}">
                         {% endif %}
                     </a>
                 </div>
