@@ -35,10 +35,17 @@ def all_products(request):
 
         if "category" in request.GET:
             categories = request.GET["category"].split(",")
-            # products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            for category in categories:
-                products = products.filter(category=category)
+            if "special" in request.GET:
+                products = products.filter(category__in=categories)
+                filter_products = []
+                for product in products:
+                    if product not in filter_products:
+                        filter_products.append(product)
+                products = filter_products
+            else:
+                for category in categories:
+                    products = products.filter(category=category)
 
         if "q" in request.GET:
             query = request.GET["q"]

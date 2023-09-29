@@ -41,7 +41,7 @@
                         </div>
                         <div class="optionalParent">
                             <div class="clear foot">
-                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-black">
+                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-black mt-2">
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                     <a href="{% url 'view_help_center' %}" class="nav-link text-uppercase text-black">Help Center</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'products' %}?category=new_arrivals,deals,limited_offers" class="nav-link text-uppercase text-black">Special Offers</a>
+                    <a href="{% url 'products' %}?category=new_arrivals,deals,limited_offers&special=true" class="nav-link text-uppercase text-black">Special Offers</a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link text-uppercase text-black" target="_blank">Privacy Policy</a>

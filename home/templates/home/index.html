@@ -72,7 +72,7 @@
         <div class="product-container col-10 offset-1">
             <div class="row">
                 {% for product in products %}
-                <div class="col-sm-6 col-md-4 col-lg-2">
+                <div class="col-sm-6 col-md-4 col-lg-2 mb-4">
                     <div class="card h-100 border">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
@@ -92,17 +92,17 @@
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                                    {% if product.category %}
                                     <p class="small mt-1 mb-0">
-                                        <a class="text-muted"
-                                            href="{% url 'products' %}?category={{ product.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                        <i class="fas fa-tag mr-1"></i>
+                                        {% for category in product.category.all %}
+                                        <a class="text-muted" href="{% url 'products' %}?category={{ category.name }}">
+                                            {{ category.friendly_name }}
                                         </a>
+                                        {% endfor %}
                                     </p>
-                                    {% endif %}
                                     {% if product.rating %}
                                     <small class="text-muted">
-                                        <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5.00
+                                        <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5
                                     </small>
                                     {% else %}
                                     <small class="text-muted">No Rating</small>
