@@ -127,12 +127,14 @@ body {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    z-index: 1000;
 }
 
 .btt-link,
 .update-link,
 .remove-item {
     cursor: pointer;
+    z-index: 1000;
 }
 
 a.category-badge>span.badge:hover {
@@ -325,6 +327,13 @@ input[name='q']::placeholder {
 
 /* Media Queries */
 
+@media (max-width: 768px) {
+    .table {
+        overflow-x: scroll;
+        display: block;
+      }
+}
+
 @media (min-width: 768px) {
     .border-mid {
         border-left: 1px solid #dee2e6 !important;
@@ -348,14 +357,14 @@ input[name='q']::placeholder {
 }
 
 @media (max-width: 991px) {
-    /* Fix logo for small and medium screens */
-    .navbar-toggler {
-        width: 39%;
-        padding: 0.25rem;
-    }
-
     .social-networks i {
         font-size: 130%;
         padding-right: 10px;
+    }
+    .mobile-carousel {
+        height: 33vh !important;
+    }
+    .mobile-carousel img {
+        /* fix image zoom somehow */
     }
 }
