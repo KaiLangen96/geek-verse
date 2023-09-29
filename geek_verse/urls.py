@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from .views import handler400, handler403, handler404, handler500
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
@@ -29,3 +31,8 @@ urlpatterns = [
     path("wishlist/", include("wishlist.urls")),
     path("help_center/", include("help_center.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler400 = 'geek_verse.views.handler400'
+handler403 = 'geek_verse.views.handler403'
+handler404 = 'geek_verse.views.handler404'
+handler500 = 'geek_verse.views.handler500'
