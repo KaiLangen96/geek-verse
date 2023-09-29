@@ -327,12 +327,7 @@ input[name='q']::placeholder {
 
 /* Media Queries */
 
-@media (max-width: 768px) {
-    .table {
-        overflow-x: scroll;
-        display: block;
-      }
-}
+/* min width */
 
 @media (min-width: 768px) {
     .border-mid {
@@ -356,15 +351,27 @@ input[name='q']::placeholder {
     }
 }
 
+/* max-width */
+
+@media (max-width: 576px) {
+    /* fix carousel for mobile */
+    .mobile-carousel {
+        height: 25vh !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* fix tables for  */
+    .table {
+        overflow-x: scroll;
+        display: block;
+    }
+}
+
 @media (max-width: 991px) {
+    /* fix social icons for mobile and medium*/
     .social-networks i {
         font-size: 130%;
         padding-right: 10px;
-    }
-    .mobile-carousel {
-        height: 33vh !important;
-    }
-    .mobile-carousel img {
-        /* fix image zoom somehow */
     }
 }
