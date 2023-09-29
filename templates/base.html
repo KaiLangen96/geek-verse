@@ -38,13 +38,13 @@
         crossorigin="anonymous"></script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
-
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
     <title>GeekVerse {% block extra_title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}favicon.ico">
 </head>
 
 <body>
@@ -121,7 +121,6 @@
             </div>
         </div>
     </header>
-
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
