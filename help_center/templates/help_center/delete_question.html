@@ -12,21 +12,18 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container empty-page-container">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <hr>
+    <div class="row text-center">
+        <div class="col-12 col-md-6 offset-md-3">
             <h2 class="logo-font mb-4">Delete Question #{{ question.id }}</h2>
-            <h5 class="text-muted">Are you sure you want to delete question #{{ question.id }}?</h5>
-            <hr>
+            <h3>Are you sure you want to delete <br> question #{{ question.id }}?</h3>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 offset-md-3">
             <form method="POST" action="{% url 'delete_question' question.id %}" class="form mb-2"
                 enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="text-right">
-
+                <div class="text-center mt-4">
                     <a class="btn btn-outline-black" href="javascript:window.history.back()">Cancel</a>
                     <button class="btn btn-danger" type="submit">Delete Question</button>
                 </div>

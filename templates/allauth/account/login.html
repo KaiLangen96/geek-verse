@@ -8,7 +8,7 @@
 <h2 class="logo-font my-4 text-center">{% trans "Sign In" %}</h2>
 {% get_providers as socialaccount_providers %}
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a> for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+<p class="text-black">{% blocktrans with site.name as site_name %}Please sign in with one of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a> for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <div class="socialaccount_ballot">
     <ul class="socialaccount_providers">
         {% include "socialaccount/snippets/provider_list.html" with process="login" %}
@@ -17,7 +17,7 @@
 </div>
 {% include "socialaccount/snippets/login_extra.html" %}
 {% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
+<p class="text-black">{% blocktrans %}If you have not created an account yet, then please
     <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
 </p>
 {% endif %}
@@ -29,7 +29,7 @@
     {% endif %}
     <a class="btn btn-outline-black" href="{% url 'home' %}">Home</a>
     <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-    <p class="mt-2">
+    <p class="mt-2 text-black">
         <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
     </p>
 </form>

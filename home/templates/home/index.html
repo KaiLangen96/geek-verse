@@ -95,17 +95,17 @@
                                     <p class="small mt-1 mb-0">
                                         <i class="fas fa-tag mr-1"></i>
                                         {% for category in product.category.all %}
-                                        <a class="text-muted" href="{% url 'products' %}?category={{ category.name }}">
+                                        <a class="text-black" href="{% url 'products' %}?category={{ category.name }}">
                                             {{ category.friendly_name }}
                                         </a>
                                         {% endfor %}
                                     </p>
                                     {% if product.rating %}
-                                    <small class="text-muted">
+                                    <small class="text-black">
                                         <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5
                                     </small>
                                     {% else %}
-                                    <small class="text-muted">No Rating</small>
+                                    <small class="text-black">No Rating</small>
                                     {% endif %}
                                     {% if request.user.is_superuser %}
                                     <small class="ml-3">
