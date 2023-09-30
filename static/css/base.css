@@ -422,6 +422,9 @@ input[name='q']::placeholder {
     #mobile-top-header {
         font-size: 77%;
     }
+    .product-detail-button {
+        font-size: 80%;
+    }
 }
 
 @media (max-width: 768px) {
