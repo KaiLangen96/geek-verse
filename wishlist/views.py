@@ -41,7 +41,7 @@ def toggle_wishlist_item(request, item_id):
                 return HttpResponseRedirect(
                     reverse("product_detail", args=product_id)
                 )
-        except:
+        except WishlistItem.DoesNotExist:
             WishlistItem.objects.create(user=request.user, product=products)
             messages.success(request, f"Added {product.name} to your wishlist")
             return HttpResponseRedirect(reverse("view_wishlist"))
