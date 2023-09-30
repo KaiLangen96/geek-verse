@@ -36,13 +36,13 @@
                         <td class="p-3 w-25">
                             {% if item.product.image %}
                             <a href="{{ item.product.image.url }}" target="_blank">
-                                <img class="card-img-top img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                <img class="card-img-top img-fluid" src="{{ item.product.image.url }}" alt="{{ item.product.name|truncatechars:50 }}">
                             </a>
                             {% else %}
                             <a href="">
                                 <img class="card-img-top img-fluid"
                                     src="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
-                                    alt="{{ item.product.name }}">
+                                    alt="{{ item.product.name|truncatechars:50 }}">
                             </a>
                             {% endif %}
                         </td>

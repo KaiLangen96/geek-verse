@@ -1,12 +1,12 @@
 {% if item.product.image %}
 <a href="{{ item.product.image.url }}" target="_blank">
-    <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+    <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name|truncatechars:50 }}">
 </a>
 {% else %}
 <a href="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
     target="_blank">
     <img class="img-fluid rounded"
         src="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
-        alt="{{ item.product.name }}">
+        alt="{{ item.product.name|truncatechars:50 }}">
 </a>
 {% endif %}

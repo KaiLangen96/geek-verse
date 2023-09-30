@@ -19,13 +19,13 @@
             <div class="image-container my-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name|truncatechars:50 }}">
                 </a>
                 {% else %}
                 <a href="{% if product.image_url %}{{ product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" target="_blank">
                     <img class="card-img-top img-fluid"
                         src="{% if product.image_url %}{{ product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
-                        alt="{{ product.name }}">
+                        alt="{{ product.name|truncatechars:50 }}">
                 </a>
                 {% endif %}
             </div>

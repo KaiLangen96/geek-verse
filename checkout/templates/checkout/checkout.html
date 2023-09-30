@@ -40,16 +40,16 @@
                 <div class="col-2 mb-1">
                     <a href="{% url 'product_detail' item.product.id %}">
                         {% if item.product.image %}
-                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name|truncatechars:50 }}">
                         {% else %}
                         <img class="w-100"
                         src="{% if item.product.image_url %}{{ item.product.image_url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
-                        alt="{{ item.product.name }}">
+                        alt="{{ item.product.name|truncatechars:50 }}">
                         {% endif %}
                     </a>
                 </div>
                 <div class="col-7">
-                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                    <p class="my-0"><strong>{{ item.product.name|truncatechars:25}}</strong></p>
                     <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                     <p class="my-0 small text-black">Qty: {{ item.quantity }}</p>
                 </div>
