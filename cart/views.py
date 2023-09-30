@@ -32,7 +32,8 @@ def add_to_cart(request, item_id):
                 if cart[item_id]["items_by_size"][size] + quantity < 49:
                     cart[item_id]["items_by_size"][size] += quantity
                     messages.success(
-                        request, f'Updated {product.name} quantity to {cart[item_id]["items_by_size"][size]}'
+                        request,
+                        f'Updated {product.name} quantity to {cart[item_id]["items_by_size"][size]}', # noqa
                     )
                 else:
                     cart[item_id]["items_by_size"][size] = 49
@@ -56,13 +57,12 @@ def add_to_cart(request, item_id):
             if cart[item_id] + quantity < 49:
                 cart[item_id] += quantity
                 messages.success(
-                    request, f"Updated {product.name} quantity to {cart[item_id]}"
+                    request,
+                    f"Updated {product.name} quantity to {cart[item_id]}",
                 )
             else:
                 cart[item_id] = 49
-                messages.success(
-                    request, "Maximum amount in one order is 49"
-                )
+                messages.success(request, "Maximum amount in one order is 49")
         else:
             cart[item_id] = quantity
             messages.success(request, f"Added {product.name} to your cart")
@@ -86,7 +86,7 @@ def adjust_cart(request, item_id):
             cart[item_id]["items_by_size"][size] = quantity
             messages.success(
                 request,
-                f'Updated size {size.upper()} {product.name} quantity to {cart[item_id]["items_by_size"][size]}',
+                f'Updated size {size.upper()} {product.name} quantity to {cart[item_id]["items_by_size"][size]}', # noqa
             )
         else:
             del cart[item_id]["items_by_size"][size]

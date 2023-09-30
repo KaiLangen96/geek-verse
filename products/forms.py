@@ -14,7 +14,7 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        categories = Category.objects.order_by('name')
+        categories = Category.objects.order_by("name")
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
         self.fields["category"].choices = friendly_names

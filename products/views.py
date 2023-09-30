@@ -78,7 +78,9 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     wishlist = []
     if request.user.is_authenticated:
-        wishlist = WishlistItem.objects.filter(user=request.user, product=product)
+        wishlist = WishlistItem.objects.filter(
+            user=request.user, product=product
+        )
 
     context = {
         "product": product,

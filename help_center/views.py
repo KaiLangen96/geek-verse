@@ -8,10 +8,10 @@ from .models import Question, Answer
 
 @login_required
 def view_help_center(request):
-    """ Displays the help center page with a form to ask questions """
+    """Displays the help center page with a form to ask questions"""
     template = "help_center/help_center.html"
     question_form = QuestionForm(initial={"user": request.user})
-    question_form.fields['user'].disabled = True
+    question_form.fields["user"].disabled = True
 
     context = {
         "question_form": question_form,
@@ -22,10 +22,12 @@ def view_help_center(request):
 
 @login_required
 def submit_question(request):
-    """ Posts the questions to the admin via the contact form """
-    if request.method == 'POST':
-        question_form = QuestionForm(request.POST, initial={"user": request.user})
-        question_form.fields['user'].disabled = True
+    """Posts the questions to the admin via the contact form"""
+    if request.method == "POST":
+        question_form = QuestionForm(
+            request.POST, initial={"user": request.user}
+        )
+        question_form.fields["user"].disabled = True
 
         if question_form.is_valid():
             question = question_form.save()
@@ -37,10 +39,11 @@ def submit_question(request):
             return render(request, template, context)
     else:
         question_form = QuestionForm(initial={"user": request.user})
-        question_form.fields['user'].disabled = True
+        question_form.fields["user"].disabled = True
 
     messages.error(
-        request, "The question form is invalid. Please ensure the form is valid."
+        request,
+        "The question form is invalid. Please ensure the form is valid.",
     )
     template = "help_center/help_center.html"
     context = {
@@ -51,19 +54,17 @@ def submit_question(request):
 
 @user_passes_test(lambda u: u.is_superuser)
 def view_dashboard(request):
-    """ Displays all questions """
+    """Displays all questions"""
     questions = Question.objects.all()
     template = "help_center/help_center_dashboard.html"
 
-    context = {
-        "questions": questions
-    }
+    context = {"questions": questions}
     return render(request, template, context)
 
 
 @login_required
 def question_detail(request, question_id):
-    """ Displays a specific questions details """
+    """Displays a specific questions details"""
     question = get_object_or_404(Question, pk=question_id)
     answers = Answer.objects.filter(question=question_id)
     if answers.exists():
@@ -81,11 +82,11 @@ def question_detail(request, question_id):
 
 @user_passes_test(lambda u: u.is_superuser)
 def view_answer(request, question_id):
-    """ Gives the admins the possibility to reply to questions """
+    """Gives the admins the possibility to reply to questions"""
     question = get_object_or_404(Question, pk=question_id)
     template = "help_center/answer.html"
     answer_form = AnswerForm(initial={"responder": request.user})
-    answer_form.fields['responder'].disabled = True
+    answer_form.fields["responder"].disabled = True
 
     context = {
         "question": question,
@@ -96,9 +97,11 @@ def view_answer(request, question_id):
 
 @user_passes_test(lambda u: u.is_superuser)
 def send_answer(request, question_id):
-    """ Posts the questions to the admin via the contact form """
-    answer_form = AnswerForm(data=request.POST, initial={"responder": request.user})
-    answer_form.fields['responder'].disabled = True
+    """Posts the questions to the admin via the contact form"""
+    answer_form = AnswerForm(
+        data=request.POST, initial={"responder": request.user}
+    )
+    answer_form.fields["responder"].disabled = True
     redirect_url = request.POST.get("redirect_url_2")
     question = get_object_or_404(Question, pk=question_id)
 
@@ -114,7 +117,8 @@ def send_answer(request, question_id):
 
     else:
         messages.error(
-            request, "The answer form is invalid. Please ensure the form is valid."
+            request,
+            "The answer form is invalid. Please ensure the form is valid.",
         )
         template = redirect_url
         context = {

@@ -55,7 +55,7 @@ def order_history(request, order_number):
 
 @login_required
 def my_questions(request):
-    """ Gives the user the possibility to see their questions and answers """
+    """Gives the user the possibility to see their questions and answers"""
     questions = Question.objects.filter(user=request.user)
     template = "profiles/my_questions.html"
 
@@ -68,7 +68,7 @@ def my_questions(request):
 
 @login_required
 def my_question_detail(request, question_id):
-    """ Displays a specific questions details """
+    """Displays a specific questions details"""
     question = get_object_or_404(Question, pk=question_id)
     answers = Answer.objects.filter(question=question_id)
     if answers.exists():
