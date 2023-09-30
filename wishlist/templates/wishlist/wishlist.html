@@ -29,6 +29,7 @@
                             <th scope="col">Product Info</th>
                             <th scope="col"></th>
                             <th scope="col">Price</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     {% for item in wishlist %}
@@ -67,7 +68,7 @@
                     </tr>
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="text-right">
+                        <td colspan="4" class="text-right">
                             <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
