@@ -21,9 +21,9 @@ body {
     height: 100px;
 }
 
-/* pushed top navbar for medium and below */
+/* pushed top navbar for small */
 .header-container {
-    padding-top: 96px;
+    padding-top: 69px;
 }
 
 .logo-font {
@@ -375,11 +375,20 @@ input[name='q']::placeholder {
 
 /* min width */
 
+@media (min-width: 576px) {
+    
+}
+
 @media (min-width: 768px) {
+    /* add borders to the links */
     .border-mid {
         border-left: 1px solid #dee2e6 !important;
         border-right: 1px solid #dee2e6 !important;
     }
+    /* pushed top navbar for medium and below */
+    .header-container {
+    padding-top: 80px;
+}
 }
 
 
@@ -408,6 +417,10 @@ input[name='q']::placeholder {
     .border-mid {
         border-top: 1px solid #dee2e6 !important;
         border-bottom: 1px solid #dee2e6 !important;
+    }
+    /* fix header icon sizes */
+    #mobile-top-header {
+        font-size: 77%;
     }
 }
 
