@@ -1,5 +1,5 @@
 <script>
-
+    // Disable the buttons on certain threshholds
     function handleEnableDisable2(incrementButton, decrementButton, currentValue){
         var minusDisabled = currentValue < 2;
         var plusDisabled = currentValue > 49;
@@ -9,7 +9,6 @@
         $(decrementButton).prop("disabled", minusDisabled);
         $(decrementButton.parentElement.parentElement).prop("disabled", minusDisabled);
     }
-
     // Check enable/disable every time the input is changed
     $(".qty_input").change(function (event) {
         const currentValue =  $(this).val();
@@ -20,7 +19,6 @@
             $(this).val(1);
         }
     });
-
     // Increment quantity
     $(".increment-qty").click(function (e) {
         e.preventDefault();
@@ -29,11 +27,9 @@
         if (currentValue < 49){
             $(closestInput).val(currentValue);
         }
-        var itemId = $(this).data("item_id");
         const decrementButton =  $(this).closest(".input-group").find('.decrement-qty')[0];
-        handleEnableDisable2(e.target, decrementButton, currentValue)
+        handleEnableDisable2(e.target, decrementButton, currentValue);
     });
-
     // Decrement quantity
     $(".decrement-qty").click(function (e) {
         e.preventDefault();
@@ -42,7 +38,6 @@
         if (currentValue > 0) {
             $(closestInput).val(currentValue);
         }
-        var itemId = $(this).data("item_id");
         const incrementButton = $(this).closest(".input-group").find('.increment-qty')[0];
         handleEnableDisable2(incrementButton, e.target, currentValue);
     });
