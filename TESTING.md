@@ -319,7 +319,7 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | Confirm Button                  | Click                                     | Success message confirming new user appears  | Pass      |
 | Confirm Button                  | Click                                     | Redirect to sign in page                     | Pass      |
 
-**Log in:**
+**Sign in:**
 | Element                         | Action                                    | Expected Result                              | Pass/Fail |
 |---------------------------------|-------------------------------------------|----------------------------------------------|-----------|
 | Sign up link                    | Click                                     | Redirect to sign up page                     | Pass      |
@@ -374,27 +374,29 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | Delete product link             | Click   | Open delete confirmation  page                                                      | Pass      |
 
 **Edit Product:**
-| Element                       | Action           | Expected Result                                                                                                      | Pass/Fail |
-|-------------------------------|------------------|----------------------------------------------------------------------------------------------------------------------|-----------|
-| Edit Product                  | Access           | If a user tries to add a product (by changing the url) without being signed in they are redirected to the login page | Pass      |
-| Edit Product                  | Display          | Info message showing what product the superuser is currently editing appears                                         | Pass      |
-| Edit product form             | Display          | Form prefilled with previous product information                                                                     | Pass      |
-| Edit product form             | Submit           | If any required field is empty the form doesn't submit                                                               | Pass      |
-| Form Text Input (if required) | Leave blank      | On Submit: Warning appears, form won't submit                                                                        | Pass      |
-| Form Text Input (if required) | Input whitespace | On Submit: Form won't submit                                                                                         | Pass      |
-| Edit Product Form             | Display          | Thumbnail of original image is shown                                                                                 | Pass      |
-| Select Image button           | Click            | Opens image selector                                                                                                 | Pass      |
-| Cancel button                 | Click            | Redirect to products page                                                                                            | Pass      |
-| Update Product button         | Click            | Redirect to product detail page with all information displaying correctly                                            | Pass      |
-| Update Product button         | Click            | Success message appears informing the superuser that the product has been updated                                    | Pass      |
+| Element                       | Action           | Expected Result                                                                                                                   | Pass/Fail |
+|-------------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Edit Product                  | Access           | If a user tries to edit a product (by changing the url) without being signed in as superuser they are redirected to the home page | Pass      |
+| Edit Product                  | Access           | An error is shown to indicate that only superusers can edit products from the store                                               | Pass      |
+| Edit Product                  | Display          | Info message showing what product the superuser is currently editing appears                                                      | Pass      |
+| Edit product form             | Display          | Form prefilled with previous product information                                                                                  | Pass      |
+| Edit product form             | Submit           | If any required field is empty the form doesn't submit                                                                            | Pass      |
+| Form Text Input (if required) | Leave blank      | On Submit: Warning appears, form won't submit                                                                                     | Pass      |
+| Form Text Input (if required) | Input whitespace | On Submit: Form won't submit                                                                                                      | Pass      |
+| Edit Product Form             | Display          | Thumbnail of original image is shown                                                                                              | Pass      |
+| Select Image button           | Click            | Opens image selector                                                                                                              | Pass      |
+| Cancel button                 | Click            | Redirect to products page                                                                                                         | Pass      |
+| Update Product button         | Click            | Redirect to product detail page with all information displaying correctly                                                         | Pass      |
+| Update Product button         | Click            | Success message appears informing the superuser that the product has been updated                                                 | Pass      |
 
 **Delete Product:**
-| Element                        | Action | Expected Result                                                                                                         | Pass/Fail |
-|--------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------|-----------|
-| Delete Product                 | Access | If a user tries to Delete a product (by changing the url) without being signed in they are redirected to the login page | Pass      |
-| Delete Product - cancel button | Click  | Redirect to product details page                                                                                        | Pass      |
-| Delete Product - delete button | Click  | Delete product                                                                                                          | Pass      |
-| Delete Product - delete button | Click  | Success message appears confirming product deleted successfully                                                         | Pass      |
+| Element                        | Action | Expected Result                                                                                                                     | Pass/Fail |
+|--------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Delete Product page            | Access | If a user tries to delete a product (by changing the url) without being signed in as superuser they are redirected to the home page | Pass      |
+| Delete Product page            | Access | An error is shown to indicate that only superusers can delete products from the store                                               | Pass      |
+| Delete Product - cancel button | Click  | Redirect to product details page                                                                                                    | Pass      |
+| Delete Product - delete button | Click  | Delete product                                                                                                                      | Pass      |
+| Delete Product - delete button | Click  | Success message appears confirming product deleted successfully                                                                     | Pass      |
 
 **Product Detail:**
 | Element                      | Action                   | Expected Result                                                                | Pass/Fail |
@@ -419,15 +421,17 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | Delete product link          | Click                    | Open delete confirmation  page                                                 | Pass      |
 
 **Add Product:**
-| Element                  | Action           | Expected Result                                                                 | Pass/Fail |
-|--------------------------|------------------|---------------------------------------------------------------------------------|-----------|
-| Add product form         | Display          | Show an empty product form for the superuser to fill out                        | Pass      |
-| Form Input (if required) | Leave blank      | On Submit: Warning appears, form won't submit                                   | Pass      |
-| Form Input (if required) | Input whitespace | On Submit: Form won't submit                                                    | Pass      |
-| Select Image button      | Click            | Opens image selector                                                            | Pass      |
-| Cancel button            | Click            | Redirect to products page                                                       | Pass      |
-| Add Product button       | Click            | Redirect to product detail page with all information displaying correctly       | Pass      |
-| Add Product button       | Click            | Success message appears informing the superuser that the product has been added | Pass      |
+| Element                  | Action           | Expected Result                                                                                                       | Pass/Fail |
+|--------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------|-----------|
+| Add product page         | Access           | If a user tries to add a product (by changing the url) without being a superuser they are redirected to the home page | Pass      |
+| Add product page         | Access           | An error is shown to indicate that only superusers can add products to the store                                      | Pass      |
+| Add product form         | Display          | Show an empty product form for the superuser to fill out                                                              | Pass      |
+| Form Input (if required) | Leave blank      | On Submit: Warning appears, form won't submit                                                                         | Pass      |
+| Form Input (if required) | Input whitespace | On Submit: Form won't submit                                                                                          | Pass      |
+| Select Image button      | Click            | Opens image selector                                                                                                  | Pass      |
+| Cancel button            | Click            | Redirect to products page                                                                                             | Pass      |
+| Add Product button       | Click            | Redirect to product detail page with all information displaying correctly                                             | Pass      |
+| Add Product button       | Click            | Success message appears informing the superuser that the product has been added                                       | Pass      |
 
 **Cart:**
 | Element                                            | Action             | Expected Result                                        | Pass/Fail |
@@ -476,7 +480,7 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | Save to profile checkbox            | Checked                         | On submit:Delivery information saved to user profile               | Pass      |
 | Save to profile checkbox            | Unchecked                       | On submit:Delivery information not saved to user profile           | Pass      |
 | Payment card input                  | Input invalid card number       | Error message on field                                             | Pass      |
-| Payment card input                  | Input invalid date              | Error message on field                                             |           |
+| Payment card input                  | Input invalid date              | Error message on field                                             | Pass      |
 | Adjust Cart button                  | Click                           | Redirect to cart page                                              | Pass      |
 | Complete Order button(form invalid) | Click                           | Form won't submit                                                  | Pass      |
 | Complete Order button(form invalid) | Click                           | Error message on invalid fields                                    | Pass      |
@@ -521,18 +525,21 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | Back to Profile button | Click             | Redirect to profile page                                                                                                       | Pass      |
 
 **My Questions:**
-| Element                | Action  | Expected Result                        | Pass/Fail |
-|------------------------|---------|----------------------------------------|-----------|
-| My Questions page      | Display | Show current users submitted questions | Pass      |
-| View Link              | Click   | Redirect to question # details page    | Pass      |
-| Delete Link            | Click   | Redirect to delete question # page     | Pass      |
+| Element           | Action  | Expected Result                                                                                                               | Pass/Fail |
+|-------------------|---------|-------------------------------------------------------------------------------------------------------------------------------|-----------|
+| My Questions page | Access  | If a user tries to access their questions (by changing the url) without being signed in they are redirected to the login page | Pass      |
+| My Questions page | Display | Show current users submitted questions                                                                                        | Pass      |
+| View Link         | Click   | Redirect to question # details page                                                                                           | Pass      |
+| Delete Link       | Click   | Redirect to delete question # page                                                                                            | Pass      |
 
 **My Question Details:**
-| Element                 | Action  | Expected Result                    | Pass/Fail |
-|-------------------------|---------|------------------------------------|-----------|
-| My Question Detail page | Display | Show correct question # details    | Pass      |
-| Back button             | Click   | Redirect to my questions page      | Pass      |
-| Delete button           | Click   | Redirect to delete question # page | Pass      |
+| Element                 | Action  | Expected Result                                                                                             | Pass/Fail |
+|-------------------------|---------|-------------------------------------------------------------------------------------------------------------|-----------|
+| My Question Detail page | Access  | If a user tries to access another users question (by changing the url) they are redirected to the home page | Fail      |
+| My Question Detail page | Access  | An error message is shown to indicate the user can only see their own questions                             | Fail      |
+| My Question Detail page | Display | Show correct question # details                                                                             | Pass      |
+| Back button             | Click   | Redirect to my questions page                                                                               | Pass      |
+| Delete button           | Click   | Redirect to delete question # page                                                                          | Pass      |
 
 **Help Center:**
 | Element                  | Action           | Expected Result                                                      | Pass/Fail |
@@ -553,39 +560,53 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | My Questions button     | Click   | Redirect to my questions page | Pass      |
 
 **Help Center Dashboard:**
-| Element               | Action  | Expected Result                                                                                                             | Pass/Fail |
-|-----------------------|---------|-----------------------------------------------------------------------------------------------------------------------------|-----------|
-| Help Center Dashboard | Access  | If a user tries to access the dashboard (by changing the url) without being signed in they are redirected to the login page | Fail      |
-| Help Center Dashboard | Display | Show all users submitted questions                                                                                          | Pass      |
-| View Link             | Click   | Redirect to question # details page                                                                                         | Pass      |
-| Delete Link           | Click   | Redirect to delete question # page                                                                                          | Pass      |
+| Element               | Action  | Expected Result                                                                                                                                                | Pass/Fail |
+|-----------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Help Center Dashboard | Access  | If a user tries to access the dashboard (by changing the url) without being a superuser they are redirected to the products page with an error message showing | Fail      |
+| Help Center Dashboard | Access  | An error message is shown to indicate that only superusers can access the questions dashboard                                                                  | Fail      |
+| Help Center Dashboard | Display | Show all users submitted questions                                                                                                                             | Pass      |
+| View Link             | Click   | Redirect to question # details page                                                                                                                            | Pass      |
+| Delete Link           | Click   | Redirect to delete question # page                                                                                                                             | Pass      |
 
 **Question Details:**
-| Element              | Action  | Expected Result                                                                                                          | Pass/Fail |
-|----------------------|---------|--------------------------------------------------------------------------------------------------------------------------|-----------|
-| Question Detail page | Access  | If a user tries to access a question (by changing the url) without being signed in they are redirected to the login page | Fail      |
-| Question Detail page | Display | Show correct question # details                                                                                          | Pass      |
-| Back button          | Click   | Redirect to my questions page                                                                                            | Pass      |
-| Answer button        | Click   | Redirect to answer page                                                                                                  | Pass      |
-| Delete button        | Click   | Redirect to delete question # page                                                                                       | Pass      |
+| Element              | Action  | Expected Result                                                                                                                   | Pass/Fail |
+|----------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Question Detail page | Access  | If a user tries to access a question (by changing the url) without being the questions owner they are redirected to the home page | Fail      |
+| Question Detail page | Access  | An error message is shown to indicate the user can only see their own questions                                                   | Fail      |
+| Question Detail page | Display | Show correct question # details                                                                                                   | Pass      |
+| Back button          | Click   | Redirect to my questions page                                                                                                     | Pass      |
+| Answer button        | Click   | Redirect to answer page                                                                                                           | Pass      |
+| Delete button        | Click   | Redirect to delete question # page                                                                                                | Pass      |
 
 **Answer Question:**
-| Element                  | Action           | Expected Result                               | Pass/Fail |
-|--------------------------|------------------|-----------------------------------------------|-----------|
-| Help Center page         | Display          | Show answer form                              | Pass      |
-| Answer form              | Display          | Show current superusername and disable field  | Pass      |
-| Form Input (if required) | Leave blank      | On Submit: Warning appears, form won't submit | Pass      |
-| Form Input (if required) | Input whitespace | On Submit: Error 500                          | Pass      |
-| Back to Dashboard button | Click            | Redirect to help center dashboard             | Pass      |
-| Submit button            | Click            | Redirect to help center dashboard             | Pass      |
+| Element                  | Action           | Expected Result                                                                                                           | Pass/Fail |
+|--------------------------|------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|
+| Answer Question page     | Access           | If a user tries to answer a question (by changing the url) without being a superuser they are redirected to the home page | Fail      |
+| Answer Question page     | Access           | An error message is shown to indicate that only superusers can answer questions                                           | Fail      |
+| Help Center page         | Display          | Show answer form                                                                                                          | Pass      |
+| Answer form              | Display          | Show current superusername and disable field                                                                              | Pass      |
+| Form Input (if required) | Leave blank      | On Submit: Warning appears, form won't submit                                                                             | Pass      |
+| Form Input (if required) | Input whitespace | On Submit: Error 500                                                                                                      | Pass      |
+| Back to Dashboard button | Click            | Redirect to help center dashboard                                                                                         | Pass      |
+| Submit button            | Click            | Redirect to help center dashboard                                                                                         | Pass      |
 
 **Delete Question:**
-| Element        | Action | Expected Result                                                                                                          | Pass/Fail |
-|----------------|--------|--------------------------------------------------------------------------------------------------------------------------|-----------|
-| Delete Product | Access | If a user tries to delete a question (by changing the url) without being signed in they are redirected to the login page | Fail      |
-| Cancel button  | Click  | Redirect to product details page                                                                                         | Pass      |
-| Delete button  | Click  | Delete product                                                                                                           | Pass      |
-| Delete button  | Click  | Success message appears confirming question deleted successfully                                                         | Pass      |
+| Element         | Action | Expected Result                                                                                                                                      | Pass/Fail |
+|-----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Delete Question | Access | If a user tries to delete their question (by changing the url) without being signed in they are redirected to the login page                         | Pass      |
+| Delete Question | Access | If a user tries to delete a question of another user (by changing the url) without being signed in as superuser they are redirected to the home page | Fail      |
+| Delete Question | Access | An error message is shown to indicate that only superusers can delete any users question                                                             | Fail      |
+| Cancel button   | Click  | Redirect to product details page                                                                                                                     | Pass      |
+| Delete button   | Click  | Delete product                                                                                                                                       | Pass      |
+| Delete button   | Click  | Success message appears confirming question deleted successfully                                                                                     | Pass      |
+
+**Wishlist:**
+| Element              | Action | Expected Result                                                                                                              | Pass/Fail |
+|----------------------|--------|------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Wishlist page        | Access | If a user tries to access their wishlist (by changing the url) without being signed in they are redirected to the login page | Pass      |
+| Remove Link          | Click  | Remove that item from the wishlist                                                                                           | Pass      |
+| Product Name Link    | Click  | Redirect to specific product details page                                                                                    | Pass      |
+| Keep Shopping button | Click  | Success message appears confirming question deleted successfully                                                             | Pass      |
 
 ## Fixed Bugs
 
