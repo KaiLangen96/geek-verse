@@ -5,7 +5,7 @@
     - [HTML](#html)
     - [CSS](#css)
     - [JSHINT](#jshint)
-    - [Python Validation - Pycodestyle](#python-validation---pycodestyle)
+    - [Python Validation - Flake8](#python-validation---flake8)
     - [Lighthouse](#lighthouse)
   - [Device Testing](#device-testing)
   - [Browser Testing](#browser-testing)
@@ -62,54 +62,96 @@ Note: I haven't been able to trigger errors to test all the error pages, but I'm
 
 No errors were found when passing my CSS files through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-*base.css*
-![base.ccs validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157711697344209016/image.png?ex=651b94c9&is=651a4349&hm=677dfcd59ec0a083b0429261e35d4e5ce37189bb3bb3ba1907435228579cf9fc&)
+<details>
+<summary>base.css</summary>
 
-*checkout.css*
-![checkout.ccs validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157711816739270799/image.png?ex=651b94e6&is=651a4366&hm=b1634994f084a7d18af09d932d31768c93499194f78440dfe2f6126db833f955&)
+![base.css](https://cdn.discordapp.com/attachments/1157660609073127524/1157711697344209016/image.png?ex=651b94c9&is=651a4349&hm=677dfcd59ec0a083b0429261e35d4e5ce37189bb3bb3ba1907435228579cf9fc&)
+</details>
 
-*profile.css*
-![profile.ccs validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157711535527952485/image.png?ex=651b94a3&is=651a4323&hm=262579691142c24ff57835053d3643849aa0f89f1528b336cd8e96481e262e7a&)
+<details>
+<summary>checkout.css</summary>
+
+![checkout.css](https://cdn.discordapp.com/attachments/1157660609073127524/1157711816739270799/image.png?ex=651b94e6&is=651a4366&hm=b1634994f084a7d18af09d932d31768c93499194f78440dfe2f6126db833f955&)
+</details>
+
+<details>
+<summary>profile.css</summary>
+
+![profile.css](https://cdn.discordapp.com/attachments/1157660609073127524/1157711535527952485/image.png?ex=651b94a3&is=651a4323&hm=262579691142c24ff57835053d3643849aa0f89f1528b336cd8e96481e262e7a&)
+</details>
 
 ### JSHINT
 
 All Javascript snippets were passed through [Jshint](https://jshint.com/) with no errors or warnings.
 
-**Cart**
-![Cart JS validation 1/2](https://cdn.discordapp.com/attachments/1157660609073127524/1157713788586430635/image.png?ex=651b96bc&is=651a453c&hm=73b022dc986ada9d7435c38307c21e4f33fc67a8cb227d8ba773e8c3c8c0be98&)
-![Cart JS validation 2/2](https://cdn.discordapp.com/attachments/1157660609073127524/1157713974192775298/image.png?ex=651b96e8&is=651a4568&hm=4d83ec67478e75ad157f85239c3c21ce6f2a73c0e67a4f7d24851b1cc97a3742&)
+<details>
+<summary>Cart</summary>
 
-**Image Selector**
-![Image Selector JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157714119508639754/image.png?ex=651b970b&is=651a458b&hm=be92e0ab8bbe45903fa8f32a33c0c3ffc75b07d0d47664960c84ac72d1165f4a&)
+![Cart JS validation 1/2](https://cdn.discordapp.com/attachments/1157660609073127524/1157713788586430635/image.png)
+![Cart JS validation 2/2](https://cdn.discordapp.com/attachments/1157660609073127524/1157713974192775298/image.png)
+</details>
 
-**Quantity Input**
-![Quantity Input JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715029358039101/image.png?ex=651b97e4&is=651a4664&hm=826f3f963d65749fec322a2fa70f5b2b59fe8bbf13d49046bc9e5acb64a7b503&)
+<details>
+<summary>Image Selector</summary>
 
-**Sort Selector**
-![Sort Selector JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715259658879116/image.png?ex=651b981b&is=651a469b&hm=af3a7ea01885e87c2e07b2b155f327ed6f34a4a9c39a1bf835d92ec90ad61d82&)
+![Image Selector JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157714119508639754/image.png)
+</details>
 
-**Back to top - Button**
-![Back to top - Button JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715569496301740/image.png?ex=651b9865&is=651a46e5&hm=5a5a45046eb38acf104baa12d91f31d26fd876cb5dfacf9b04e621a87d9a2b1c&)
+<details>
+<summary>Quantity Input</summary>
 
-**All auth mail function**
-![All auth mail function JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715721162326197/image.png?ex=651b9889&is=651a4709&hm=7178a2a67fea082e50320dfcff81147d9d2e7af3bf804a3b0545db52554aab04&)
+![Quantity Input JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715029358039101/image.png)
+</details>
 
-**Showing toasts**
-![Showing toasts JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715973537804435/image.png?ex=651b98c5&is=651a4745&hm=fb31852ae40684cd8c668f3210cad1a8f2513e2190250dbe1e3769de9359eb08&)
+<details>
+<summary>Sort Selector</summary>
 
-**Modal script**
-![Modal script JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157716996889247865/image.png?ex=651b99b9&is=651a4839&hm=740d75ae31060b3534b59169809e3616444d993052f5dd35214e3fd2e09e070d&)
+![Sort Selector JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715259658879116/image.png)
+</details>
 
-**Wislist**
-![Wishlist JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157717140749692979/image.png?ex=651b99db&is=651a485b&hm=40367f0e41fc11c07d88a52c99b77544731ca541bd49b7d873f0cc5667ea9f64&)
+<details>
+<summary>Back to top - Button</summary>
 
-**Countryfield.js**
-![Countryfield.js JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157718728939679784/image.png?ex=651b9b56&is=651a49d6&hm=9cad0b0c4858c1ec4718d964697f33e642229d358d898f989060fd929dd4926d&)
+![Back to top - Button JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715569496301740/image.png)
+</details>
 
-**Stripe_elements.js**
-![Stripe_elements.js validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157720310771101809/image.png?ex=651b9ccf&is=651a4b4f&hm=ed3fe09695bed64c92a1d74bb5fdcfa2ee320fe9745dea78e959716118a87f6e&)
+<details>
+<summary>All auth mail function</summary>
 
-### Python Validation - Pycodestyle
+![All auth mail function JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715721162326197/image.png)
+</details>
+
+<details>
+<summary>Showing toasts</summary>
+
+![Showing toasts JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157715973537804435/image.png)
+</details>
+
+<details>
+<summary>Modal script</summary>
+
+![Modal script JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157716996889247865/image.png)
+</details>
+
+<details>
+<summary>Wislist</summary>
+
+![Wishlist JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157717140749692979/image.png)
+</details>
+
+<details>
+<summary>Countryfield.js</summary>
+
+![Countryfield.js JS validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157718728939679784/image.png)
+</details>
+
+<details>
+<summary>Stripe_elements.js</summary>
+
+![Stripe_elements.js validation](https://cdn.discordapp.com/attachments/1157660609073127524/1157720310771101809/image.png)
+</details>
+
+### Python Validation - Flake8
 
 Python testing was conducted utilizing Flake8 to verify the absence of syntax errors. Additionally I used [black](https://pypi.org/project/black/) as a recommendation from my weekly teacher, Kay, to format my code. Then I strategically employed # noqa where necessary, such as in the error handlers or on lines that were not subject to breakpoints. In the end I could run flake8 without any errors or warnings shown.
 
@@ -624,7 +666,11 @@ After successfully submitting a question I wanted the question to render to the 
 
 The view should bring the user to the details of the question and if available should show the answer to it, instead I received a 404 error.
 
-- I used get_object_or_404 in order to get the answer. If no answer exists it throws the 404 error. In order to fix this I added a try/except block, to see if an answer can be found. If not the answer is set to None so it's still defined.
+- I used `get_object_or_404` in order to get the answer. If no answer exists it throws the 404 error. In order to fix this I added a try/except block, to see if an answer can be found. If not the answer is set to None so it's still defined.
+
+In order to show the correct error for forbidden content I used the HttpResponse(status=403), which resulted in a 403 error but I coulnd't render my own 403.html.
+
+- To fix this I exchanged the `return HttpResponse` with `raise PermissionDenied`. That way Django takes the handler403 as customized error view - [refrence](https://docs.djangoproject.com/en/4.2/topics/http/views/#customizing-error-views).
 
 ## Unfixed Bugs
 
