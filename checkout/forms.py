@@ -33,7 +33,6 @@ class OrderForm(forms.ModelForm):
             "street_address2": "Street Address 2",
             "county": "County, State or Locality",
         }
-
         self.fields["full_name"].widget.attrs["autofocus"] = True
         for field in self.fields:
             if field != "country":

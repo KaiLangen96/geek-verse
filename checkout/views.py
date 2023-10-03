@@ -46,10 +46,8 @@ def cache_checkout_data(request):
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-
     if request.method == "POST":
         cart = request.session.get("cart", {})
-
         form_data = {
             "full_name": request.POST["full_name"],
             "email": request.POST["email"],
@@ -99,7 +97,6 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse("view_cart"))
-
             request.session["save_info"] = "save-info" in request.POST
             return redirect(
                 reverse("checkout_success", args=[order.order_number])
@@ -117,7 +114,6 @@ def checkout(request):
                 request, "There's nothing in your cart at the moment"
             )
             return redirect(reverse("products"))
-
         current_cart = cart_contents(request)
         total = current_cart["grand_total"]
         stripe_total = round(total * 100)
@@ -126,7 +122,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -147,21 +142,18 @@ def checkout(request):
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
-
     if not stripe_public_key:
         messages.warning(
             request,
             "Stripe public key is missing. \
             Did you forget to set it in your environment?",
         )
-
     template = "checkout/checkout.html"
     context = {
         "order_form": order_form,
         "stripe_public_key": stripe_public_key,
         "client_secret": intent.client_secret,
     }
-
     return render(request, template, context)
 
 
@@ -171,13 +163,11 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get("save_info")
     order = get_object_or_404(Order, order_number=order_number)
-
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
-
         # Save the user's info
         if save_info:
             profile_data = {
@@ -192,20 +182,16 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-
     messages.success(
         request,
         f"Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.",
     )
-
     if "cart" in request.session:
         del request.session["cart"]
-
     template = "checkout/checkout_success.html"
     context = {
         "order": order,
     }
-
     return render(request, template, context)

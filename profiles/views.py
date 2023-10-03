@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
@@ -70,15 +70,20 @@ def my_questions(request):
 def my_question_detail(request, question_id):
     """Displays a specific questions details"""
     question = get_object_or_404(Question, pk=question_id)
-    answers = Answer.objects.filter(question=question_id)
-    if answers.exists():
-        answer = answers
+    if request.user == question.user:
+        answers = Answer.objects.filter(question=question_id)
+        if answers.exists():
+            answer = answers
+        else:
+            answer = None
+        template = "profiles/my_question_detail.html"
+        context = {
+            "question": question,
+            "answer": answer,
+        }
+        return render(request, template, context)
     else:
-        answer = None
-    template = "profiles/my_question_detail.html"
-
-    context = {
-        "question": question,
-        "answer": answer,
-    }
-    return render(request, template, context)
+        messages.error(
+            request,
+            "Sorry, you can only view your own questions.")
+        return HttpResponse(status=403)

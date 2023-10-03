@@ -11,13 +11,11 @@ from wishlist.models import WishlistItem
 
 def all_products(request):
     """A view to show all products, including sorting and search queries"""
-
     products = Product.objects.all()
     query = None
     categories = None
     sort = None
     direction = None
-
     if request.GET:
         if "sort" in request.GET:
             sortkey = request.GET["sort"]
@@ -32,7 +30,6 @@ def all_products(request):
                 if direction == "desc":
                     sortkey = f"-{sortkey}"
             products = products.order_by(sortkey)
-
         if "category" in request.GET:
             categories = request.GET["category"].split(",")
             categories = Category.objects.filter(name__in=categories)
@@ -46,7 +43,6 @@ def all_products(request):
             else:
                 for category in categories:
                     products = products.filter(category=category)
-
         if "q" in request.GET:
             query = request.GET["q"]
             if not query:
@@ -54,39 +50,32 @@ def all_products(request):
                     request, "You didn't enter any search criteria!"
                 )
                 return redirect(reverse("products"))
-
             queries = Q(name__icontains=query) | Q(
                 description__icontains=query
             )  # noqa
             products = products.filter(queries)
-
     current_sorting = f"{sort}_{direction}"
-
     context = {
         "products": products,
         "search_term": query,
         "current_categories": categories,
         "current_sorting": current_sorting,
     }
-
     return render(request, "products/products.html", context)
 
 
 def product_detail(request, product_id):
     """A view to show individual product details"""
-
     product = get_object_or_404(Product, pk=product_id)
     wishlist = []
     if request.user.is_authenticated:
         wishlist = WishlistItem.objects.filter(
             user=request.user, product=product
         )
-
     context = {
         "product": product,
         "wishlist": wishlist,
     }
-
     return render(request, "products/product_detail.html", context)
 
 
@@ -109,12 +98,10 @@ def add_product(request):
             )
     else:
         form = ProductForm()
-
     template = "products/add_product.html"
     context = {
         "form": form,
     }
-
     return render(request, template, context)
 
 
@@ -139,13 +126,11 @@ def edit_product(request, product_id):
     else:
         form = ProductForm(instance=product)
         messages.info(request, f"You are editing {product.name}")
-
     template = "products/edit_product.html"
     context = {
         "form": form,
         "product": product,
     }
-
     return render(request, template, context)
 
 
@@ -155,17 +140,13 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
         return redirect(reverse("home"))
-
     product = get_object_or_404(Product, pk=product_id)
-
     if request.method == "POST":
         product.delete()
         messages.success(request, "Successfully deleted product!")
         return redirect(reverse("products"))
-
     template = "products/delete_product.html"
     context = {
         "product": product,
     }
-
     return render(request, template, context)

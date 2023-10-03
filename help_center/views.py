@@ -1,6 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    HttpResponse,
+    get_object_or_404,
+)
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test, login_required
+from django.contrib.auth.decorators import login_required
 
 from .forms import QuestionForm, AnswerForm
 from .models import Question, Answer
@@ -8,27 +14,24 @@ from .models import Question, Answer
 
 @login_required
 def view_help_center(request):
-    """Displays the help center page with a form to ask questions"""
+    """Display the help center page with a form to ask questions"""
     template = "help_center/help_center.html"
     question_form = QuestionForm(initial={"user": request.user})
     question_form.fields["user"].disabled = True
-
     context = {
         "question_form": question_form,
     }
-
     return render(request, template, context)
 
 
 @login_required
 def submit_question(request):
-    """Posts the questions to the admin via the contact form"""
+    """Post the questions to the admin via the question form"""
     if request.method == "POST":
         question_form = QuestionForm(
             request.POST, initial={"user": request.user}
         )
         question_form.fields["user"].disabled = True
-
         if question_form.is_valid():
             question = question_form.save()
             template = "help_center/question_submitted.html"
@@ -40,7 +43,6 @@ def submit_question(request):
     else:
         question_form = QuestionForm(initial={"user": request.user})
         question_form.fields["user"].disabled = True
-
     messages.error(
         request,
         "The question form is invalid. Please ensure the form is valid.",
@@ -52,42 +54,55 @@ def submit_question(request):
     return render(request, template, context)
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@login_required
 def view_dashboard(request):
-    """Displays all questions"""
+    """Display all questions"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            "Sorry, only store owners can view the help center dashboard.")
+        return redirect(reverse("home"))
     questions = Question.objects.all()
     template = "help_center/help_center_dashboard.html"
-
     context = {"questions": questions}
     return render(request, template, context)
 
 
 @login_required
 def question_detail(request, question_id):
-    """Displays a specific questions details"""
+    """Display a specific questions details"""
     question = get_object_or_404(Question, pk=question_id)
-    answers = Answer.objects.filter(question=question_id)
-    if answers.exists():
-        answer = answers
+    if request.user == question.user:
+        answers = Answer.objects.filter(question=question_id)
+        if answers.exists():
+            answer = answers
+        else:
+            answer = None
+        template = "help_center/question_detail.html"
+        context = {
+            "question": question,
+            "answer": answer,
+        }
+        return render(request, template, context)
     else:
-        answer = None
-    template = "help_center/question_detail.html"
-
-    context = {
-        "question": question,
-        "answer": answer,
-    }
-    return render(request, template, context)
+        messages.error(
+            request,
+            "Sorry, you can only view your own questions.")
+        return HttpResponse(status=403)
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@login_required
 def view_answer(request, question_id):
-    """Gives the admins the possibility to reply to questions"""
+    """Give the admins the possibility to answer questions"""
+    if not request.user.is_superuser:
+        messages.error(
+            request,
+            "Sorry, only store owners can answer questions.")
+        return redirect(reverse("home"))
     question = get_object_or_404(Question, pk=question_id)
     template = "help_center/answer.html"
     answer_form = AnswerForm(initial={"responder": request.user})
     answer_form.fields["responder"].disabled = True
-
     context = {
         "question": question,
         "answer_form": answer_form,
@@ -95,16 +110,15 @@ def view_answer(request, question_id):
     return render(request, template, context)
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@login_required
 def send_answer(request, question_id):
-    """Posts the questions to the admin via the contact form"""
+    """Post the answer to the admin via the answer form"""
     answer_form = AnswerForm(
         data=request.POST, initial={"responder": request.user}
     )
     answer_form.fields["responder"].disabled = True
     redirect_url = request.POST.get("redirect_url_2")
     question = get_object_or_404(Question, pk=question_id)
-
     if answer_form.is_valid():
         answer_form.instance.question = question
         answer_form.save()
@@ -112,9 +126,7 @@ def send_answer(request, question_id):
             request,
             "Your answer has been submitted.",
         )
-
         return redirect(reverse(view_dashboard))
-
     else:
         messages.error(
             request,
@@ -124,25 +136,24 @@ def send_answer(request, question_id):
         context = {
             "answer_form": answer_form,
         }
-
     return render(request, template, context)
 
 
 @login_required
 def delete_question(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-
-    if request.method == "POST":
-        question.delete()
-        messages.success(request, "Successfully deleted the question!")
-        if request.user.is_superuser:
-            return redirect(reverse("view_dashboard"))
-        else:
-            return redirect(reverse("my_questions"))
-
-    template = "help_center/delete_question.html"
-    context = {
-        "question": question,
-    }
-
-    return render(request, template, context)
+    if request.user == question.user:
+        if request.method == "POST":
+            question.delete()
+            messages.success(request, "Successfully deleted the question!")
+            if request.user.is_superuser:
+                return redirect(reverse("view_dashboard"))
+            else:
+                return redirect(reverse("my_questions"))
+        template = "help_center/delete_question.html"
+        context = {
+            "question": question,
+        }
+        return render(request, template, context)
+    else:
+        return HttpResponse(status=403)

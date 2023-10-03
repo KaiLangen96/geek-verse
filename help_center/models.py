@@ -10,7 +10,6 @@ class Question(models.Model):
     ACCOUNT = "A"
     NEWSLETTER = "N"
     OTHER = "X"
-
     REASONS = [
         ("ORDER", "the order"),
         ("DELIVERT", "the delivery"),
@@ -20,7 +19,6 @@ class Question(models.Model):
         ("NEWSLETTER", "the newsletter subscription"),
         ("OTHER", "other"),
     ]
-
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user"
     )

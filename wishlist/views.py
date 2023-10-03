@@ -16,19 +16,16 @@ def view_wishlist(request):
         "wishlist": wishlist,
         "no_cart_display": True,
     }
-
     return render(request, template, context)
 
 
 @login_required
 def toggle_wishlist_item(request, item_id):
     """Add a specified product to the wishlist"""
-
     if request.method == "POST":
         product = get_object_or_404(Product, pk=item_id)
         product_id = request.POST.get("product-id")
         products = Product.objects.get(id=product_id)
-
         try:
             wishlist_item = WishlistItem.objects.get(
                 user=request.user, product=products

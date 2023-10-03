@@ -16,7 +16,6 @@ class StripeWH_Handler:
     """
     Handle Stripe webhooks
     """
-
     def __init__(self, request):
         self.request = request
 
@@ -31,7 +30,6 @@ class StripeWH_Handler:
             "checkout/confirmation_emails/confirmation_email_body.txt",
             {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
         )
-
         send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     def handle_event(self, event):
@@ -50,19 +48,15 @@ class StripeWH_Handler:
         pid = intent.id
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
-
         # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
-
         billing_details = stripe_charge.billing_details  # updated
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)  # updated
-
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-
         # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
@@ -81,7 +75,6 @@ class StripeWH_Handler:
                 )
                 profile.default_county = shipping_details.address.state
                 profile.save()
-
         order_exists = False
         attempt = 1
         while attempt <= 5:

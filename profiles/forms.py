@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import UserProfile
 
 
@@ -21,7 +22,6 @@ class UserProfileForm(forms.ModelForm):
             "default_street_address2": "Street Address 2",
             "default_county": "County, State or Locality",
         }
-
         self.fields["default_phone_number"].widget.attrs["autofocus"] = True
         for field in self.fields:
             if field != "default_country":

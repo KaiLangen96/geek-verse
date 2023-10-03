@@ -533,13 +533,13 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | Delete Link       | Click   | Redirect to delete question # page                                                                                            | Pass      |
 
 **My Question Details:**
-| Element                 | Action  | Expected Result                                                                                             | Pass/Fail |
-|-------------------------|---------|-------------------------------------------------------------------------------------------------------------|-----------|
-| My Question Detail page | Access  | If a user tries to access another users question (by changing the url) they are redirected to the home page | Fail      |
-| My Question Detail page | Access  | An error message is shown to indicate the user can only see their own questions                             | Fail      |
-| My Question Detail page | Display | Show correct question # details                                                                             | Pass      |
-| Back button             | Click   | Redirect to my questions page                                                                               | Pass      |
-| Delete button           | Click   | Redirect to delete question # page                                                                          | Pass      |
+| Element                 | Action  | Expected Result                                                                                            | Pass/Fail |
+|-------------------------|---------|------------------------------------------------------------------------------------------------------------|-----------|
+| My Question Detail page | Access  | If a user tries to access another users question (by changing the url) they are redirected to the 403 page | Pass      |
+| My Question Detail page | Access  | An error message is shown to indicate the user can only see their own questions                            | Pass      |
+| My Question Detail page | Display | Show correct question # details                                                                            | Pass      |
+| Back button             | Click   | Redirect to my questions page                                                                              | Pass      |
+| Delete button           | Click   | Redirect to delete question # page                                                                         | Pass      |
 
 **Help Center:**
 | Element                  | Action           | Expected Result                                                      | Pass/Fail |
@@ -560,29 +560,29 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | My Questions button     | Click   | Redirect to my questions page | Pass      |
 
 **Help Center Dashboard:**
-| Element               | Action  | Expected Result                                                                                                                                                | Pass/Fail |
-|-----------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Help Center Dashboard | Access  | If a user tries to access the dashboard (by changing the url) without being a superuser they are redirected to the products page with an error message showing | Fail      |
-| Help Center Dashboard | Access  | An error message is shown to indicate that only superusers can access the questions dashboard                                                                  | Fail      |
-| Help Center Dashboard | Display | Show all users submitted questions                                                                                                                             | Pass      |
-| View Link             | Click   | Redirect to question # details page                                                                                                                            | Pass      |
-| Delete Link           | Click   | Redirect to delete question # page                                                                                                                             | Pass      |
+| Element               | Action  | Expected Result                                                                                                                                            | Pass/Fail |
+|-----------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Help Center Dashboard | Access  | If a user tries to access the dashboard (by changing the url) without being a superuser they are redirected to the home page with an error message showing | Pass      |
+| Help Center Dashboard | Access  | An error message is shown to indicate that only superusers can access the help center dashboard                                                            | Pass      |
+| Help Center Dashboard | Display | Show all users submitted questions                                                                                                                         | Pass      |
+| View Link             | Click   | Redirect to question # details page                                                                                                                        | Pass      |
+| Delete Link           | Click   | Redirect to delete question # page                                                                                                                         | Pass      |
 
 **Question Details:**
-| Element              | Action  | Expected Result                                                                                                                   | Pass/Fail |
-|----------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Question Detail page | Access  | If a user tries to access a question (by changing the url) without being the questions owner they are redirected to the home page | Fail      |
-| Question Detail page | Access  | An error message is shown to indicate the user can only see their own questions                                                   | Fail      |
-| Question Detail page | Display | Show correct question # details                                                                                                   | Pass      |
-| Back button          | Click   | Redirect to my questions page                                                                                                     | Pass      |
-| Answer button        | Click   | Redirect to answer page                                                                                                           | Pass      |
-| Delete button        | Click   | Redirect to delete question # page                                                                                                | Pass      |
+| Element              | Action  | Expected Result                                                                                                                  | Pass/Fail |
+|----------------------|---------|----------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Question Detail page | Access  | If a user tries to access a question (by changing the url) without being the questions owner they are redirected to the 403 page | Pass      |
+| Question Detail page | Access  | An error message is shown to indicate the user can only see their own questions                                                  | Pass      |
+| Question Detail page | Display | Show correct question # details                                                                                                  | Pass      |
+| Back button          | Click   | Redirect to my questions page                                                                                                    | Pass      |
+| Answer button        | Click   | Redirect to answer page                                                                                                          | Pass      |
+| Delete button        | Click   | Redirect to delete question # page                                                                                               | Pass      |
 
 **Answer Question:**
 | Element                  | Action           | Expected Result                                                                                                           | Pass/Fail |
 |--------------------------|------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|
-| Answer Question page     | Access           | If a user tries to answer a question (by changing the url) without being a superuser they are redirected to the home page | Fail      |
-| Answer Question page     | Access           | An error message is shown to indicate that only superusers can answer questions                                           | Fail      |
+| Answer Question page     | Access           | If a user tries to answer a question (by changing the url) without being a superuser they are redirected to the home page | Pass      |
+| Answer Question page     | Access           | An error message is shown to indicate that only superusers can answer questions                                           | Pass      |
 | Help Center page         | Display          | Show answer form                                                                                                          | Pass      |
 | Answer form              | Display          | Show current superusername and disable field                                                                              | Pass      |
 | Form Input (if required) | Leave blank      | On Submit: Warning appears, form won't submit                                                                             | Pass      |
@@ -591,14 +591,14 @@ The website underwent testing on Google Chrome, Firefox, Edge, and Opera browser
 | Submit button            | Click            | Redirect to help center dashboard                                                                                         | Pass      |
 
 **Delete Question:**
-| Element         | Action | Expected Result                                                                                                                                      | Pass/Fail |
-|-----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Delete Question | Access | If a user tries to delete their question (by changing the url) without being signed in they are redirected to the login page                         | Pass      |
-| Delete Question | Access | If a user tries to delete a question of another user (by changing the url) without being signed in as superuser they are redirected to the home page | Fail      |
-| Delete Question | Access | An error message is shown to indicate that only superusers can delete any users question                                                             | Fail      |
-| Cancel button   | Click  | Redirect to product details page                                                                                                                     | Pass      |
-| Delete button   | Click  | Delete product                                                                                                                                       | Pass      |
-| Delete button   | Click  | Success message appears confirming question deleted successfully                                                                                     | Pass      |
+| Element         | Action | Expected Result                                                                                                                                     | Pass/Fail |
+|-----------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Delete Question | Access | If a user tries to delete their question (by changing the url) without being signed in they are redirected to the login page                        | Pass      |
+| Delete Question | Access | If a user tries to delete a question of another user (by changing the url) without being signed in as superuser they are redirected to the 403 page | Pass      |
+| Delete Question | Access | An error message is shown to indicate that only superusers can delete any users question                                                            | Pass      |
+| Cancel button   | Click  | Redirect to product details page                                                                                                                    | Pass      |
+| Delete button   | Click  | Delete product                                                                                                                                      | Pass      |
+| Delete button   | Click  | Success message appears confirming question deleted successfully                                                                                    | Pass      |
 
 **Wishlist:**
 | Element              | Action | Expected Result                                                                                                              | Pass/Fail |
