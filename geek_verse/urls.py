@@ -34,7 +34,7 @@ urlpatterns = [
 
 # The handlers are created based on the tutorial:
 # Project - Boutique Ado > Code Refactoring > Adding a custom 404 page
-handler400 = 'geek_verse.views.handler400' # noqa
-handler403 = 'geek_verse.views.handler403' # noqa
-handler404 = 'geek_verse.views.handler404' # noqa
-handler500 = 'geek_verse.views.handler500' # noqa
+handler400 = "geek_verse.views.handler400"  # noqa
+handler403 = "geek_verse.views.handler403"  # noqa
+handler404 = "geek_verse.views.handler404"  # noqa
+handler500 = "geek_verse.views.handler500"  # noqa

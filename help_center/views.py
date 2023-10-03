@@ -60,7 +60,8 @@ def view_dashboard(request):
     if not request.user.is_superuser:
         messages.error(
             request,
-            "Sorry, only store owners can view the help center dashboard.")
+            "Sorry, only store owners can view the help center dashboard.",
+        )
         return redirect(reverse("home"))
     questions = Question.objects.all()
     template = "help_center/help_center_dashboard.html"
@@ -85,9 +86,7 @@ def question_detail(request, question_id):
         }
         return render(request, template, context)
     else:
-        messages.error(
-            request,
-            "Sorry, you can only view your own questions.")
+        messages.error(request, "Sorry, you can only view your own questions.")
         return HttpResponse(status=403)
 
 
@@ -96,8 +95,8 @@ def view_answer(request, question_id):
     """Give the admins the possibility to answer questions"""
     if not request.user.is_superuser:
         messages.error(
-            request,
-            "Sorry, only store owners can answer questions.")
+            request, "Sorry, only store owners can answer questions."
+        )
         return redirect(reverse("home"))
     question = get_object_or_404(Question, pk=question_id)
     template = "help_center/answer.html"

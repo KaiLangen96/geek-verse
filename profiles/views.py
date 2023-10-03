@@ -83,7 +83,5 @@ def my_question_detail(request, question_id):
         }
         return render(request, template, context)
     else:
-        messages.error(
-            request,
-            "Sorry, you can only view your own questions.")
+        messages.error(request, "Sorry, you can only view your own questions.")
         return HttpResponse(status=403)

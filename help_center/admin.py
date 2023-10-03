@@ -4,6 +4,7 @@ from help_center.models import Question, Answer
 
 class QuestionAdmin(admin.ModelAdmin):
     """Allows admin to manage enquiries via the admin panel"""
+
     list_display = (
         "id",
         "user",
@@ -14,6 +15,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 class AnswerAdmin(admin.ModelAdmin):
     """Allows admin to manage enquiries via the admin panel"""
+
     list_display = (
         "id",
         "responder",
