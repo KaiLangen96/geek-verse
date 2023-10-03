@@ -2,11 +2,11 @@ from django.shortcuts import (
     render,
     redirect,
     reverse,
-    HttpResponse,
     get_object_or_404,
 )
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 from .forms import QuestionForm, AnswerForm
 from .models import Question, Answer
@@ -62,7 +62,7 @@ def view_dashboard(request):
             request,
             "Sorry, only store owners can view the help center dashboard.",
         )
-        return redirect(reverse("home"))
+        raise PermissionDenied
     questions = Question.objects.all()
     template = "help_center/help_center_dashboard.html"
     context = {"questions": questions}
@@ -87,7 +87,7 @@ def question_detail(request, question_id):
         return render(request, template, context)
     else:
         messages.error(request, "Sorry, you can only view your own questions.")
-        return HttpResponse(status=403)
+        raise PermissionDenied
 
 
 @login_required
@@ -97,7 +97,7 @@ def view_answer(request, question_id):
         messages.error(
             request, "Sorry, only store owners can answer questions."
         )
-        return redirect(reverse("home"))
+        raise PermissionDenied
     question = get_object_or_404(Question, pk=question_id)
     template = "help_center/answer.html"
     answer_form = AnswerForm(initial={"responder": request.user})
@@ -155,4 +155,7 @@ def delete_question(request, question_id):
         }
         return render(request, template, context)
     else:
-        return HttpResponse(status=403)
+        messages.error(
+            request, "Sorry, you can only delete your own questions."
+        )
+        raise PermissionDenied

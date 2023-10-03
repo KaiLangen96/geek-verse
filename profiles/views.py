@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+
 from .models import UserProfile
 from .forms import UserProfileForm
-
 from checkout.models import Order
 from help_center.models import Question, Answer
 
@@ -84,4 +85,4 @@ def my_question_detail(request, question_id):
         return render(request, template, context)
     else:
         messages.error(request, "Sorry, you can only view your own questions.")
-        return HttpResponse(status=403)
+        raise PermissionDenied
