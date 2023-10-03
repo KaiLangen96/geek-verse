@@ -12,6 +12,96 @@ The link to the store can be found here - [GeekVerse](https://geek-verse-d354d8f
 
 ![Site Mockup](https://media.discordapp.net/attachments/1158735657443786843/1158735756374855720/image.png)
 
+- [GeekVerse](#geekverse)
+  - [User Experience (UX)](#user-experience-ux)
+    - [User Stories](#user-stories)
+      - [EPIC | Website Foundation and Core Features](#epic--website-foundation-and-core-features)
+      - [EPIC | Enhancing Shopping Experience and Promotions](#epic--enhancing-shopping-experience-and-promotions)
+      - [EPIC | Streamlined Checkout and Customer Support](#epic--streamlined-checkout-and-customer-support)
+      - [User stories not yet implemented](#user-stories-not-yet-implemented)
+    - [Design](#design)
+      - [Colour Scheme](#colour-scheme)
+      - [Imagery](#imagery)
+      - [Fonts](#fonts)
+      - [Wireframes](#wireframes)
+  - [Agile Methodology](#agile-methodology)
+  - [Database Schema](#database-schema)
+  - [Security Features and Defensive Design](#security-features-and-defensive-design)
+    - [User Authentication](#user-authentication)
+    - [Form Validation](#form-validation)
+    - [Database Security](#database-security)
+    - [Custom error pages](#custom-error-pages)
+  - [Features](#features)
+    - [Header](#header)
+      - [Logo](#logo)
+      - [Navigation Bar](#navigation-bar)
+      - [Search Bar](#search-bar)
+      - [User Icon](#user-icon)
+      - [Cart Icon](#cart-icon)
+    - [Footer](#footer)
+    - [Home Page](#home-page)
+      - [Call to Action Section](#call-to-action-section)
+    - [User Account Pages](#user-account-pages)
+      - [Sign Up](#sign-up)
+      - [Sign In](#sign-in)
+      - [Sign Out](#sign-out)
+    - [Profile](#profile)
+      - [Delivery Details](#delivery-details)
+      - [Order History](#order-history)
+      - [My Questions](#my-questions)
+      - [My Question Detail](#my-question-detail)
+    - [Products](#products)
+    - [Product Detail](#product-detail)
+      - [Add Product](#add-product)
+      - [Edit Product](#edit-product)
+      - [Delete Product](#delete-product)
+    - [Cart](#cart)
+      - [Quantity Buttons](#quantity-buttons)
+      - [Update and Remove Buttons](#update-and-remove-buttons)
+      - [Total Section](#total-section)
+    - [Checkout](#checkout)
+      - [Details](#details)
+      - [Order Summary](#order-summary)
+      - [Payment](#payment)
+      - [Checkout Success](#checkout-success)
+    - [Wishlist](#wishlist)
+    - [Help Center](#help-center)
+      - [Help Center Dashboard](#help-center-dashboard)
+      - [Help Center Question Detail](#help-center-question-detail)
+      - [Help Center Answer](#help-center-answer)
+      - [Help Center Delete Question](#help-center-delete-question)
+    - [Error Pages](#error-pages)
+  - [Business Model](#business-model)
+  - [Marketing Strategy](#marketing-strategy)
+    - [SEO](#seo)
+      - [Keywords](#keywords)
+      - [Building Trust](#building-trust)
+      - [Sitemap and robots.txt](#sitemap-and-robotstxt)
+    - [Content marketing](#content-marketing)
+    - [Social Media Marketing](#social-media-marketing)
+    - [Email Marketing](#email-marketing)
+  - [Testing](#testing)
+  - [Deployment - Heroku](#deployment---heroku)
+    - [Create the Heroku App](#create-the-heroku-app)
+    - [Attach the Postgres database](#attach-the-postgres-database)
+    - [Update Heroku Config Vars](#update-heroku-config-vars)
+    - [Deploy](#deploy)
+  - [AWS Set Up](#aws-set-up)
+    - [AWS S3 Bucket](#aws-s3-bucket)
+    - [IAM](#iam)
+    - [Connecting S3 to Django](#connecting-s3-to-django)
+  - [Forking this repository](#forking-this-repository)
+  - [Cloning this repository](#cloning-this-repository)
+  - [Languages](#languages)
+  - [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
+  - [Credits](#credits)
+    - [Media](#media)
+    - [Content](#content)
+  - [Special Thanks](#special-thanks)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## User Experience (UX)
 
 A typical visitor to GeekVerse is likely to be an adult with a keen interest in purchasing geeky merchandise.
@@ -562,15 +652,42 @@ Custom error pages have been crafted to provide users with more detailed informa
 
 ## Business Model
 
+GeekVerse proudly operates on a Business to Consumer (B2C) business model, offering a seamless experience where products are sold directly from us to the end-users - our valued customers. Our primary audience are discerning geeks with a keen interest in acquiring extraordinary geek merchandise.
+
+1. Direct-to-Consumer Convenience:
+GeekVerse's B2C model ensures a straightforward and direct shopping process. Customers have the convenience of purchasing exceptional geek merch directly from our platform, eliminating unnecessary intermediaries.
+
+2. Targeted Audience:
+Our discerning customers are typically adults who share a passion for acquiring remarkable geek merchandise. At GeekVerse, we curate our offerings with the geek community in mind, ensuring a collection that resonates with their unique interests.
+
+3. Unparalleled Geek Merchandise:
+As a B2C leader, GeekVerse takes pride in providing customers with access to an unparalleled array of geek merchandise. From iconic collectibles to the latest fandom trends, our platform is the go-to destination for enthusiasts seeking exceptional products.
+
+4. Customer-Centric Experience:
+GeekVerse understands that our customers are the heartbeat of our community. Our B2C approach allows us to tailor the shopping experience specifically for the end-user, fostering a customer-centric environment that prioritizes satisfaction and engagement.
+
+5. Geek Lifestyle:
+GeekVerse caters to those who appreciate the finer aspects of the geek lifestyle, and our B2C model ensures that everyone can easily integrate amazing geek merch into their lives. We bring the best of geek culture directly to the hands of those who appreciate it the most.
+
+GeekVerse's commitment to the B2C model reflects our dedication to providing a seamless, personalized, and delightful shopping experience for enthusiasts who seek to enrich their lives with amazing geek merchandise.
+
 ## Marketing Strategy
+
+Various marketing tactics have been employed to promote GeekVerse, encompassing SEO, content marketing, social media marketing, and email marketing. Each of these strategies will be elaborated upon individually below.
 
 ### SEO
 
+Various SEO methodologies were implemented to guarantee the website's prominence in search engine rankings.
+
 #### Keywords
 
-![Keywords]()
+A blend of short-tail and long-tail keywords underwent thorough consideration for the site. Comprehensive keyword research was conducted by examining Google search results, analyzing competitor keywords, and leveraging wordtracker.com.
 
-#### External Links
+An initial compilation of topics and keywords is provided below. This list underwent further refinement based on considerations of relevance and authority.
+
+The most pertinent keywords have been incorporated into the site's meta-keywords and meta-description. These keywords have also been strategically integrated into page titles, headings, site content, `<strong></strong>` tags, image alt attributes, and anchor tag links throughout the site.
+
+![Keywords](https://cdn.discordapp.com/attachments/1158350902336438335/1158354247654592562/image.png?)
 
 #### Building Trust
 
@@ -583,6 +700,8 @@ A sitemap file, listing important page URLs, was generated to enhance search eng
 Additionally, a robots.txt file was crafted to guide search engines on areas they are not allowed to access on the website. This practice contributes to improved SEO by enhancing the overall quality of the site.
 
 ### Content marketing
+
+The site features images of popular brands and items to attract potential new clients. These visuals enable the business to showcase its products and build trust with customers.
 
 ### Social Media Marketing
 
