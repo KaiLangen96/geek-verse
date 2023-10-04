@@ -101,7 +101,6 @@ The link to the store can be found here - [GeekVerse](https://geek-verse-d354d8f
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
 ## User Experience (UX)
 
 A typical visitor to GeekVerse is likely to be an adult with a keen interest in purchasing geeky merchandise.
@@ -160,137 +159,62 @@ The primary font used for the body of the website is Roboto Slab, which has been
 
 #### Wireframes
 
-<details>
-
-<summary>Cart</summary>
-
-![Cart]()
-</details>
+To keep the readme concise, I omitted wireframes for pages similar to the walkthrough project and only included the ones I created. Since 'Profiles My Questions' and 'Help Center Dashboard' share a very similar layout, I also decided to only give one wireframe.
 
 <details>
 
-<summary>Checkout</summary>
+<summary>Home</summary>
 
-![Checkout]()
-</details>
-
-<details>
-
-<summary>Checkout Success</summary>
-
-![Checkout Success]()
-</details>
-
-<details>
-
-<summary>Help Center Answer</summary>
-
-![Help Center Answer]()
-</details>
-
-<details>
-
-<summary>Help Center Delete Question</summary>
-
-![Help Center Delete Question]()
-</details>
-
-<details>
-
-<summary>Help Center Dashboard</summary>
-
-![Help Center Dashboard]()
+![Home](https://cdn.discordapp.com/attachments/1159091869364527114/1159091883763576904/image.png?)
 </details>
 
 <details>
 
 <summary>Help Center</summary>
 
-![Help Center]()
-</details>
-
-<details>
-
-<summary>Help Center Question Detail</summary>
-
-![Help Center Question Detail]()
+![Help Center](https://cdn.discordapp.com/attachments/1159091869364527114/1159091954781528104/image.png?)
 </details>
 
 <details>
 
 <summary>Help Center Question Submitted</summary>
 
-![Help Center Question Submitted]()
+![Help Center Question Submitted](https://cdn.discordapp.com/attachments/1159091869364527114/1159092104585293945/image.png?)
 </details>
 
 <details>
 
-<summary>Home</summary>
+<summary>Help Center Dashboard</summary>
 
-![Home]()
+![Help Center Dashboard](https://cdn.discordapp.com/attachments/1159091869364527114/1159092012897808424/image.png?)
 </details>
 
 <details>
 
-<summary>Prodcuts Add Product</summary>
+<summary>Help Center Question Detail</summary>
 
-![Prodcuts Add Product]()
+![Help Center Question Detail](https://cdn.discordapp.com/attachments/1159091869364527114/1159094761005785128/image.png?)
 </details>
 
 <details>
 
-<summary>Products Delete Product</summary>
+<summary>Help Center Answer</summary>
 
-![Products Delete Product]()
+![Help Center Answer](https://cdn.discordapp.com/attachments/1159091869364527114/1159092158968627210/image.png?)
 </details>
 
 <details>
 
-<summary>Products Edit Product</summary>
+<summary>Help Center Delete Question</summary>
 
-![Products Edit Product]()
-</details>
-
-<details>
-
-<summary>Products Product Detail</summary>
-
-![Products Product Detail]()
-</details>
-
-<details>
-
-<summary>Products</summary>
-
-![Products]()
-</details>
-
-<details>
-
-<summary>Profiles My Question Detail</summary>
-
-![Profiles My Question Detail]()
-</details>
-
-<details>
-
-<summary>Profiles My Questions</summary>
-
-![Profiles My Questions]()
-</details>
-
-<details>
-
-<summary>Profile</summary>
-
-![Profile]()
+![Help Center Delete Question](https://cdn.discordapp.com/attachments/1159091869364527114/1159094817712787546/image.png?)
 </details>
 
 <details>
 
 <summary>Wishlist</summary>
 
-![Wishlist]()
+![Wishlist](https://cdn.discordapp.com/attachments/1159091869364527114/1159092206280376320/image.png?)
 </details>
 
 ## Agile Methodology
