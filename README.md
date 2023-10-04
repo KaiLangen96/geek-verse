@@ -869,7 +869,7 @@ To clone this repository, follow the steps below:
 ## Frameworks - Libraries - Programs Used
 
 - [Django](https://www.djangoproject.com/): Main python framework used in the development of this project
-- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html): Authentication library used to create the user accounts
+- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/): Authentication library used to create the user accounts
 - [JQuery](https://jquery.com/)
 - [PostgreSQL](https://www.postgresql.org/): Used as the database for this project.
 - [SQLite](https://www.sqlite.org/index.html): Used as the database during production.
@@ -888,7 +888,7 @@ To clone this repository, follow the steps below:
 - [Lucidchart](https://lucid.app/documents#/dashboard): Used to create the database schema design
 - [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/): Used to manage Django Forms
 - [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/): CSS Framework for developing responsiveness and styling
-- [Sitemap Generator](www.xml-sitemaps.com): Used to create sitemap.xml
+- [Sitemap Generator](https://www.xml-sitemaps.com/): Used to create sitemap.xml
 - [Privacy Policy Generator](https://www.privacypolicygenerator.info/): Used to create the site's privacy policy
 - [Terms of Service Generator](https://www.termsofservicegenerator.net/): Used to create the site's terms of service.
 - [Mailchimp](https://mailchimp.com/?currency=EUR): Used to create the newsletter signup functionality.
@@ -925,7 +925,7 @@ To clone this repository, follow the steps below:
 
 [w3schools](https://www.w3schools.com/), for so many helpful pages and tools to support learning the languages.
 
-[Django](https://docs.djangoproject.com/en/4.0/) and [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) docs, for a lot of helpful information.
+[Django](https://docs.djangoproject.com/en/3.2/) and [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) docs, for a lot of helpful information.
 
 [Stack Overflow](https://stackoverflow.com/), for a lot of help, especially regarding bug fixes.
 

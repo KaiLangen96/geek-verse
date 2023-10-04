@@ -660,7 +660,7 @@ I changed the lenght of the order number for better visibilty and ran into an er
 
 - Since I used the exact same code for stripe as the walkthrough project I had to change the order model to return a 25 long string instead of the 32 long string.
 
-After successfully submitting a question I wanted the question to render to the user so they can check if everything is correct, but all I got was an [empty form](https://downloads.intercomcdn.com/i/o/836802483/aa4f73174569122bc101e4a8/image.png?expires=1696272986&signature=87efa080905e3d63f364f998ec613b391bed806e12abda835f76772c4b3297bb).
+After successfully submitting a question I wanted the question to render to the user so they can check if everything is correct, but all I got was an [empty form](https://cdn.discordapp.com/attachments/1157660609073127524/1159102516487794728/image.png?).
 
 - In order to fix this I first needed to make sure to check if request method is POST, to ensure the form is being submitted. After successfully saving the question using question_form.save(), I created a context dictionary containing the user's name and the created question. Then I render the "question_submitted.html" template with this context, which displays the user's name and the question.
 
