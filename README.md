@@ -10,7 +10,7 @@ For testing purposes, a set of test card details can be used. A comprehensive li
 
 The link to the store can be found here - [GeekVerse](https://geek-verse-d354d8f466c1.herokuapp.com/).
 
-![Site Mockup](https://media.discordapp.net/attachments/1158735657443786843/1158735756374855720/image.png)
+![Site Mockup](https://cdn.discordapp.com/attachments/1158735657443786843/1159467119516327936/image.png?)
 
 - [GeekVerse](#geekverse)
   - [User Experience (UX)](#user-experience-ux)
