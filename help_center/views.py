@@ -73,7 +73,7 @@ def view_dashboard(request):
 def question_detail(request, question_id):
     """Display a specific questions details"""
     question = get_object_or_404(Question, pk=question_id)
-    if request.user == question.user:
+    if request.user == question.user or request.user.is_superuser:
         answers = Answer.objects.filter(question=question_id)
         if answers.exists():
             answer = answers
@@ -141,7 +141,7 @@ def send_answer(request, question_id):
 @login_required
 def delete_question(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    if request.user == question.user:
+    if request.user == question.user or request.user.is_superuser:
         if request.method == "POST":
             question.delete()
             messages.success(request, "Successfully deleted the question!")

@@ -71,7 +71,7 @@ def my_questions(request):
 def my_question_detail(request, question_id):
     """Displays a specific questions details"""
     question = get_object_or_404(Question, pk=question_id)
-    if request.user == question.user:
+    if request.user == question.user or request.user.is_superuser:
         answers = Answer.objects.filter(question=question_id)
         if answers.exists():
             answer = answers
